@@ -2,11 +2,11 @@
 site_name: 'сyber•Congress wiki'
 site_description: 'Knowledge base of cyber•Congress'
 site_author: 'cyber•Congress team'
-edit_uri: https://github.com/cybercongress/congress/edit/master/wiki/docs
+edit_uri: https://github.com/cybercongress/Library/edit/master/wiki/docs
 
 # Repository
 repo_name: 'congress'
-repo_url: 'https://github.com/cybercongress/congress'
+repo_url: 'https://github.com/cybercongress/Library'
 
 
 # Copyright
