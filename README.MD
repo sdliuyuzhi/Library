@@ -1,4 +1,6 @@
-The library is work in progress and hopefully lay the foundation of cyber•Congress R&D activities.
+The library is work in progress and hopefully lay the foundation of cyber•Congress R&D activities. 
+
+The library includes [wiki](https://github.com/cybercongress/Library/tree/master/wiki)
 
 ## Copyrights
 Cybernomics respects freedom of information in comparison with scattered copyright laws. But cybernomics respect will of authors. If you an author and would like to delete the file from this library just pull the request.
