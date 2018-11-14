@@ -53,12 +53,12 @@ font:
   code: Roboto Mono
 
 # Favicon to be rendered
-favicon: assets/images/favicon.png
+favicon: ../../img/favicon.png
 
 # The logo of the documentation shown in the header and navigation can either
 # be a Material Icon ligature (see https://material.io/icons/) or an image URL
 logo:
-  icon: "\uE80C"
+  icon: "../../img/logo.svg"
 
 # Material includes the search in the header as a partial, not as a separate
 # template, so it's correct that search.html is missing
