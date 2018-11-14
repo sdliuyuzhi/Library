@@ -2,7 +2,7 @@
 site_name: 'сyber•Congress wiki'
 site_description: 'Knowledge base of cyber•Congress'
 site_author: 'cyber•Congress team'
-edit_uri: https://github.com/cybercongress/congress/edit/master/wiki/docs
+edit_uri: https://github.com/cybercongress/library/edit/master/wiki/docs
 
 # Repository
 repo_name: 'congress'
@@ -20,8 +20,8 @@ theme:
   font:
     text: 'Play'
     code: 'Play'
-  favicon: 'img/Logo_cat.svg'
-  logo: 'img/Logo_cat.svg'
+  favicon: 'img/favicon.png'
+  logo: 'img/logo.svg'
   language: 'en'
   palette:
     primary: 'green'
