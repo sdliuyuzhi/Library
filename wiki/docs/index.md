@@ -1,6 +1,6 @@
 Welcome to Congress knowledge base.
 
-12312412413423r435r24r42rt24g2e
+Right now these docs cover eight open source projects:
 
 * <a href="https://github.com/cybercongress/cybernode">cybernode</a> - smart node manager and transaction crawler
 * <a href="https://github.com/cybercongress/cyber-search">cyber-search</a> - transaction parser for cybernode
