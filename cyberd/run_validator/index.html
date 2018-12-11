@@ -40,7 +40,7 @@
     
     
       
-        <title>Run validator node - сyber•Congress wiki</title>
+        <title>Join Cyberd Network As Validator - сyber•Congress wiki</title>
       
     
     
@@ -101,7 +101,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#run-validator-node" tabindex="1" class="md-skip">
+      <a href="#join-cyberd-network-as-validator" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -127,7 +127,7 @@
                 сyber•Congress wiki
               </span>
               <span class="md-header-nav__topic">
-                Run validator node
+                Join Cyberd Network As Validator
               </span>
             
           
@@ -1251,6 +1251,27 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prepare-your-server" title="Prepare your server" class="md-nav__link">
+    Prepare your server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-dependencies" title="Install Dependencies" class="md-nav__link">
+    Install Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-fullnode" title="Start Fullnode" class="md-nav__link">
+    Start Fullnode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prepare-stake-address" title="Prepare stake address" class="md-nav__link">
     Prepare stake address
   </a>
@@ -1280,35 +1301,99 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/cybercongress/library/edit/master/wiki/docs/cyberd/run_validator_node.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/cybercongress/library/edit/master/wiki/docs/cyberd/run_validator.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="run-validator-node">Run validator node<a class="headerlink" href="#run-validator-node" title="Permanent link">&para;</a></h1>
-<p>Firstly, run full node using "<a href="../run_testnet/">Run full node</a>" guide. </p>
-<p>Alright, you are now connected to the testnet. 
-To be a validator, you will need some <strong>CBD</strong>(testnet coin).</p>
+                <h1 id="join-cyberd-network-as-validator">Join Cyberd Network As Validator<a class="headerlink" href="#join-cyberd-network-as-validator" title="Permanent link">&para;</a></h1>
+<h2 id="prepare-your-server">Prepare your server<a class="headerlink" href="#prepare-your-server" title="Permanent link">&para;</a></h2>
+<p>First, you have to setup a server. 
+You are supposed to run your validator node all time, so you will need a reliable server to keep it running. 
+Also, you may consider to use any cloud services like AWS or DigitalOcean.</p>
+<p>Cyberd is based on Cosmos SDK written in Go. 
+It should work on any platform which can compile and run programs in Go. 
+However, I strongly recommend running the validator node on a Linux server.</p>
+<p>Here is the current required server specification to run validator node:</p>
+<ol>
+<li>No. of CPUs: 6</li>
+<li>RAM: 32GB</li>
+<li>Card with Nvidia CUDA support(ex 1080ti) and at least 8gb VRAM.</li>
+<li>Disk: 256GB SSD</li>
+</ol>
+<h2 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h2>
+<p>Our main distribution unit is docker container. 
+All images are located in default <a href="https://hub.docker.com/r/cyberd/cyberd/">Dockerhub registry</a>.
+Rank calculated on <strong>GPU</strong> using <a href="https://docs.nvidia.com/cuda/index.html"><strong>CUDA Toolkit</strong></a>.
+In order to access <strong>GPU</strong> from container, nvidia drivers version <strong>410+</strong> and 
+ <a href="https://github.com/NVIDIA/nvidia-docker">nvidia docker runtime</a> should be installed on host system.</p>
+<p>Check both driver and docker runtime installed correctly:</p>
+<div class="codehilite"><pre><span></span>docker run --runtime<span class="o">=</span>nvidia --rm nvidia/cuda:10.0-base nvidia-smi
+
+<span class="c1"># Should be displayed something like this.</span>
+Tue Dec <span class="m">11</span> <span class="m">18</span>:02:15 <span class="m">2018</span>       
++-----------------------------------------------------------------------------+
+<span class="p">|</span> NVIDIA-SMI <span class="m">410</span>.78       Driver Version: <span class="m">410</span>.78       CUDA Version: <span class="m">10</span>.0     <span class="p">|</span>
+<span class="p">|</span>-------------------------------+----------------------+----------------------+
+<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
+<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
+<span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span>   <span class="m">0</span>  GeForce GTX <span class="m">1050</span>    Off  <span class="p">|</span> <span class="m">00000000</span>:01:00.0 Off <span class="p">|</span>                  N/A <span class="p">|</span>
+<span class="p">|</span> N/A   52C    P0    N/A /  N/A <span class="p">|</span>    302MiB /  4042MiB <span class="p">|</span>      <span class="m">2</span>%      Default <span class="p">|</span>
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+<span class="p">|</span> Processes:                                                       GPU Memory <span class="p">|</span>
+<span class="p">|</span>  GPU       PID   Type   Process name                             Usage      <span class="p">|</span>
+<span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
++-----------------------------------------------------------------------------+
+</pre></div>
+
+
+<h2 id="start-fullnode">Start Fullnode<a class="headerlink" href="#start-fullnode" title="Permanent link">&para;</a></h2>
+<p>First, create folder, where daemon and cli will store data. Some commands may require admin privileges.</p>
+<div class="codehilite"><pre><span></span>mkdir /cyberd
+</pre></div>
+
+
+<p>Run daemon with mounted volumes on created during previous step folder.</p>
+<div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --runtime<span class="o">=</span>nvidia <span class="se">\</span>
+ -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
+ -v /cyberd/daemon:/root/.cyberd <span class="se">\</span>
+ -v /cyberd/cli:/root/.cyberdcli <span class="se">\</span>
+ cyberd/cyberd:euler-dev0
+</pre></div>
+
+
+<p>To check if your node is connected to the testnet, you can run this:</p>
+<div class="codehilite"><pre><span></span>docker exec cyberd cyberdcli status
+</pre></div>
+
+
+<p>You should be seeing a returned JSON with your node status including node_info, sync_info and validator_info.</p>
 <h2 id="prepare-stake-address">Prepare stake address<a class="headerlink" href="#prepare-stake-address" title="Permanent link">&para;</a></h2>
-<p>If you already have address with <strong>CBD</strong>, just restore it into your local keyspace.</p>
-<div class="codehilite"><pre><span></span>./cli keys add &lt;your_key_name&gt; --recover
-./cli show &lt;your_key_name&gt;
+<p>Alright, you are now connected to the testnet. 
+To be a validator, you will need some <strong>CBD</strong>(cyberd coin) to be bounded as your stake. 
+Top 146 validators by bounded stake will be active validators taking part in consensus. </p>
+<p>If you already have address with <strong>CBD</strong>, just restore it with your seed phrase into your local keystore.</p>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli keys add &lt;your_key_name&gt; --recover
+docker <span class="nb">exec</span> cyberd cyberdcli show &lt;your_key_name&gt;
 </pre></div>
 
 
-<p>If no, create new one and send coins to it. 
-You first need to create a pair of private and public keys for sending and 
-receiving coins, and bonding stake. </p>
-<div class="codehilite"><pre><span></span>./cli keys add &lt;your_key_name&gt; 
+<p>If no, create new one using command below. 
+Also, you should send coins to that address to bound them later during validator submitting. </p>
+<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli add &lt;your_key_name&gt; 
+docker exec cyberd cyberdcli show &lt;your_key_name&gt;
 </pre></div>
 
 
-<p><your_key_name> is any name you pick to represent this key pair. 
+<p><strong><your_key_name></strong> is any name you pick to represent this key pair. 
 You have to refer to this <your_key_name> later when you use the keys to sign transactions. 
 It will ask you to enter your password twice to encrypt the key. 
 You also need to enter your password when you use your key to sign any transaction.</p>
 <p>The command returns the address, public key and a seed phrase which you can use it to 
 recover your account if you forget your password later.
 Keep the seed phrase in a safe place in case you have to use them.</p>
-<p>The address showing here is your account address. Let’s call this <your_account_address>. 
+<p>The address showing here is your account address. Let’s call this <strong><your_account_address></strong>. 
 It stores your assets.</p>
 <h2 id="send-create-validator-transaction">Send create validator transaction<a class="headerlink" href="#send-create-validator-transaction" title="Permanent link">&para;</a></h2>
 <p>Validators are actors on the network committing new blocks by submitting their votes. 
@@ -1316,19 +1401,19 @@ It refers to the node itself, not a single person or a single account.
 Therefore, the public key here is referring to the node public key, 
 not the public key of the address you have just created.</p>
 <p>To get the node public key, run the following command.</p>
-<div class="codehilite"><pre><span></span>./daemon tendermint show_validator
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberd tendermint show_validator
 </pre></div>
 
 
-<p>It will return a bech32 public key. Let’s call it <your_node_pubkey>.
+<p>It will return a bech32 public key. Let’s call it <strong><your_node_pubkey></strong>.
 The next step you have to declare a validator candidate. 
 The validator candidate is the account which stake the coins. 
 So the validator candidate is an account this time.
-To declare a validator candidate, run the following command.</p>
-<div class="codehilite"><pre><span></span>./cli tx stake create-validator <span class="se">\</span>
+To declare a validator candidate, run the following command adjusting stake amount and other fields.</p>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli tx stake create-validator <span class="se">\</span>
   --amount<span class="o">=</span>100CBD <span class="se">\</span>
   --pubkey<span class="o">=</span>&lt;your_node_pubkey&gt; <span class="se">\</span>
-  --moniker<span class="o">=</span><span class="s2">&quot;hlb&quot;</span> <span class="se">\</span>
+  --moniker<span class="o">=</span>&lt;your_node_nickname&gt; <span class="se">\</span>
   --trust-node <span class="se">\</span>
   --from<span class="o">=</span>&lt;your_key_name&gt; <span class="se">\</span>
   --commission-rate<span class="o">=</span><span class="s2">&quot;0.10&quot;</span> <span class="se">\</span>

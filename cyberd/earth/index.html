@@ -1248,28 +1248,6 @@
     
   
   
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#copy-files-tofrom-earth" title="Copy files to/from earth" class="md-nav__link">
-    Copy files to/from earth
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reset-cyberd" title="Reset cyberd" class="md-nav__link">
-    Reset cyberd
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1284,7 +1262,6 @@
                 
                 
                 <h1 id="earth-cheat-sheets">Earth cheat sheets<a class="headerlink" href="#earth-cheat-sheets" title="Permanent link">&para;</a></h1>
-<h2 id="copy-files-tofrom-earth">Copy files to/from earth<a class="headerlink" href="#copy-files-tofrom-earth" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span># Copy from earth
 scp -P 33224 earth@earth.cybernode.ai:/path/file /host/path/file
 # Copy to earth
@@ -1293,12 +1270,16 @@ scp -P 33324 testnet/config.toml earth@earth.cybernode.ai:/cyberdata/cyberd/conf
 </pre></div>
 
 
-<h2 id="reset-cyberd">Reset cyberd<a class="headerlink" href="#reset-cyberd" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>docker stop cyberd
-docker rm cyberd
-docker run --rm -v /cyberdata/cyberd/data:/root/.cyberd/data -v /cyberdata/cyberd/config:/root/.cyberd/config cybernode/cyberd:master cyberd unsafe-reset-all
-docker pull cybernode/cyberd:master
-docker run -d --restart always --name=cyberd -p 34656:26656 -p 34657:26657 -p 34660:26660 -v /cyberdata/cyberd/data:/root/.cyberd/data -v /cyberdata/cyberd/config:/root/.cyberd/config cybernode/cyberd:master
+<div class="codehilite"><pre><span></span>docker run -d --restart always --name=cyberd --runtime=nvidia \
+ -p 34656:26656 -p 34657:26657 -p 34660:26660 \
+ -v /cyberdata/cyberd:/root/.cyberd \
+ cyberd/cyberd:euler-dev0
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>docker run --rm \
+ -v /cyberdata/cyberd:/root/.cyberd \
+ cyberd/cyberd:euler-dev0 cyberd unsafe-reset-all
 </pre></div>
                 
                   
