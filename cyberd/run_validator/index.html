@@ -1410,7 +1410,7 @@ The next step you have to declare a validator candidate.
 The validator candidate is the account which stake the coins. 
 So the validator candidate is an account this time.
 To declare a validator candidate, run the following command adjusting stake amount and other fields.</p>
-<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli tx stake create-validator <span class="se">\</span>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli tx stake create-validator <span class="se">\</span>
   --amount<span class="o">=</span>100CBD <span class="se">\</span>
   --pubkey<span class="o">=</span>&lt;your_node_pubkey&gt; <span class="se">\</span>
   --moniker<span class="o">=</span>&lt;your_node_nickname&gt; <span class="se">\</span>
