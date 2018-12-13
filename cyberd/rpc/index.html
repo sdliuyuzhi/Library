@@ -1321,6 +1321,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#coinsreceived" title="CoinsReceived" class="md-nav__link">
+    CoinsReceived
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coinssend" title="CoinsSend" class="md-nav__link">
+    CoinsSend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idslinked" title="СidsLinked" class="md-nav__link">
+    СidsLinked
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1359,7 +1380,7 @@
 <h2 id="standard-methods">Standard Methods<a class="headerlink" href="#standard-methods" title="Permanent link">&para;</a></h2>
 <h3 id="query-example">Query Example<a class="headerlink" href="#query-example" title="Permanent link">&para;</a></h3>
 <p>Query http endpoint using curl:</p>
-<div class="codehilite"><pre><span></span>curl --data <span class="s1">&#39;{&quot;method&quot;:&quot;cyberd_mostResentBlockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:&quot;1&quot;,&quot;jsonrpc&quot;:&quot;2.0&quot;}&#39;</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl --data <span class="s1">&#39;{&quot;method&quot;:&quot;status&quot;,&quot;params&quot;:[],&quot;id&quot;:&quot;1&quot;,&quot;jsonrpc&quot;:&quot;2.0&quot;}&#39;</span> <span class="se">\</span>
 -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -X POST earth.cybernode.ai:34657
 </pre></div>
 
@@ -1367,7 +1388,7 @@
 <p>Query ws endpoint from js:</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">websocket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s2">&quot;ws://earth.cybernode.ai:34657/websocket&quot;</span><span class="p">);</span>
 <span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="s2">&quot;cyberd_mostResentBlockNumber&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="s2">&quot;status&quot;</span><span class="p">,</span>
   <span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="p">[],</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
   <span class="s2">&quot;jsonrpc&quot;</span><span class="o">:</span><span class="s2">&quot;2.0&quot;</span>
@@ -1389,14 +1410,19 @@ the method name for further details such as parameter and return information.</p
 <tbody>
 <tr>
 <td>1</td>
-<td><a href="#mostResentBlockNumber">mostResentBlockNumber</a></td>
-<td>Returns the number of most recent block.</td>
+<td><a href="#status">status</a></td>
+<td>Get node info, pubkey, latest block hash, app hash, block height and time.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="#link-exist">is_link_exist</a></td>
+<td>Return true, if given link exist.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="method-details">Method Details<a class="headerlink" href="#method-details" title="Permanent link">&para;</a></h3>
 <hr />
-<p><a name="mostResentBlockNumber"/></p>
+<p><a name="status"/></p>
 <table>
 <thead>
 <tr>
@@ -1407,7 +1433,7 @@ the method name for further details such as parameter and return information.</p
 <tbody>
 <tr>
 <td>Method</td>
-<td>cyberd_mostResentBlockNumber</td>
+<td>status</td>
 </tr>
 <tr>
 <td>Parameters</td>
@@ -1415,15 +1441,34 @@ the method name for further details such as parameter and return information.</p
 </tr>
 <tr>
 <td>Description</td>
-<td>Returns the number of most recent block.</td>
+<td>Get node info, pubkey, latest block hash, app hash, block height and time.</td>
 </tr>
 <tr>
-<td>Returns</td>
-<td><code>int</code></td>
+<td><a href="#method-overview">Return to Overview</a><br /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a name="link-exist"/></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>is_link_exist</td>
 </tr>
 <tr>
-<td>Example Return</td>
-<td><code>42</code></td>
+<td>Parameters</td>
+<td>1. from (cid, required)<br />2. to (cid, required)<br />3. address (string, required)<br /></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Return true, if given link exist.</td>
 </tr>
 <tr>
 <td><a href="#method-overview">Return to Overview</a><br /></td>
@@ -1462,6 +1507,21 @@ the method name for further details such as parameter and return information.</p
 <td>1</td>
 <td><a href="#NewBlockHeader">NewBlockHeader</a></td>
 <td>Sends block header notification when a new block is committed.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="#CoinsReceived">CoinsReceived</a></td>
+<td>Sends a notification when a new coins is arrived to given address.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="#CoinsSend">CoinsSend</a></td>
+<td>Sends a notification when a new coins is send from given address.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="#СidsLinked">СidsLinked</a></td>
+<td>Notification of link created by given address.</td>
 </tr>
 </tbody>
 </table>
@@ -1529,6 +1589,89 @@ the method name for further details such as parameter and return information.</p
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+
+
+<h4 id="coinsreceived">CoinsReceived<a class="headerlink" href="#coinsreceived" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>CoinsReceived</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Sends a notification when a new coins is arrived to given address.</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>'tm.event=\'EventTx\' AND recipient = 'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds''</td>
+</tr>
+<tr>
+<td><a href="#events-overview">Return to Overview</a><br /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="coinssend">CoinsSend<a class="headerlink" href="#coinssend" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>CoinsSend</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Sends a notification when a new coins is send from given address.</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>'tm.event=\'EventTx\' AND sender = 'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds''</td>
+</tr>
+<tr>
+<td><a href="#events-overview">Return to Overview</a><br /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="idslinked">СidsLinked<a class="headerlink" href="#idslinked" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>СidsLinked</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Notification of link created by given address.</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>'tm.event=\'EventTx\' AND signer = 'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds' AND action = 'link' '</td>
+</tr>
+<tr>
+<td><a href="#events-overview">Return to Overview</a><br /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
