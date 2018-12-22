@@ -24,3 +24,18 @@ May be we need third context...
 Don't save rank. Calculate it before node start.
 If node falls then it should recalculate rank.
 Node doesn't participate in consensus till rank not calculated (obvious).
+
+We probably don't care about indices of new cids and user stakes cause they are ordered by numbers
+and in rank calculation algorithm no needed numbers will be ignored (need to check).
+
+We could store cidCount per rank calculation.
+
+#### New links handling
+
+Add new incoming links to index with rank 0, so they immediately can be seen by users.
+Include those "zero" ranks to consensus hash.
+
+Problems:
+1. Reload of app state after failure (dealing with hashes)
+2. Recalculation of index. New links will go to next rank calculation and old index (with those links) 
+will be replaced by currently calculated rank.
