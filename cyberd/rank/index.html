@@ -1241,6 +1241,19 @@
     Calculate rank in parallel (once at 600 blocks)
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-links-handling" title="New links handling" class="md-nav__link">
+    New links handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1288,6 +1301,16 @@ May be we need third context...</li>
 <p>Don't save rank. Calculate it before node start.
 If node falls then it should recalculate rank.
 Node doesn't participate in consensus till rank not calculated (obvious).</p>
+<p>We probably don't care about indices of new cids and user stakes cause they are ordered by numbers
+and in rank calculation algorithm no needed numbers will be ignored (need to check).</p>
+<p>We could store cidCount per rank calculation.</p>
+<h4 id="new-links-handling">New links handling<a class="headerlink" href="#new-links-handling" title="Permanent link">&para;</a></h4>
+<p>Add new incoming links to index with rank 0, so they immediately can be seen by users.
+Include those "zero" ranks to consensus hash.</p>
+<p>Problems:
+1. Reload of app state after failure (dealing with hashes)
+2. Recalculation of index. New links will go to next rank calculation and old index (with those links) 
+will be replaced by currently calculated rank.</p>
                 
                   
                 
