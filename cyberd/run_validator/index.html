@@ -1346,7 +1346,7 @@ Tue Dec <span class="m">11</span> <span class="m">18</span>:02:15 <span class="m
 
 
 <p>Run daemon with mounted volumes on created during previous step folder.</p>
-<div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --runtime<span class="o">=</span>nvidia <span class="se">\</span>
+<div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
  -v /cyberd/daemon:/root/.cyberd <span class="se">\</span>
  -v /cyberd/cli:/root/.cyberdcli <span class="se">\</span>
