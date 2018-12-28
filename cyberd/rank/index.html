@@ -1305,7 +1305,7 @@ Node doesn't participate in consensus till rank not calculated (obvious).</p>
 and in rank calculation algorithm no needed numbers will be ignored (need to check).</p>
 <p>We could store cidCount per rank calculation.</p>
 <h4 id="new-links-handling">New links handling<a class="headerlink" href="#new-links-handling" title="Permanent link">&para;</a></h4>
-<p>Add new incoming links to index with rank 0, so they immediately can be seen by users.
+<p>Add new incoming links cids to index with rank 0 (only for new cids), so they immediately can be seen by users.
 Include those "zero" ranks to consensus hash.</p>
 <p>Problems:
 1. Reload of app state after failure (dealing with hashes).
