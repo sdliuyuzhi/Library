@@ -1260,6 +1260,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get-cyb-tokens" title="Get CYB tokens" class="md-nav__link">
+    Get CYB tokens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prepare-stake-address" title="Prepare stake address" class="md-nav__link">
     Prepare stake address
   </a>
@@ -1360,17 +1367,18 @@ Tue Dec <span class="m">11</span> <span class="m">18</span>:02:15 <span class="m
 
 
 <p>You should be seeing a returned JSON with your node status including node_info, sync_info and validator_info.</p>
+<h2 id="get-cyb-tokens">Get CYB tokens<a class="headerlink" href="#get-cyb-tokens" title="Permanent link">&para;</a></h2>
+<p>To be a validator, you will need some CYB to be bounded as your stake. 
+Top 146 validators by bounded stake will be active validators taking part in consensus and earning validator rewards.</p>
+<p>Once the network do not have 146 validators 100M CYB is enougth to join. Don't worry - it is not so much tokens. CYB do not have decimals so 1 CYB is comparable to 1 wei in Ethereum. Cyber network is pure POS <a href="https://tendermint.com/">Tendermint</a> based network, so there is no ability to mine tokens. But there are <a href="/docs/get_CYB.md">several ways to get tokens</a>.</p>
 <h2 id="prepare-stake-address">Prepare stake address<a class="headerlink" href="#prepare-stake-address" title="Permanent link">&para;</a></h2>
-<p>Alright, you are now connected to the testnet. 
-To be a validator, you will need some <strong>CBD</strong>(cyberd coin) to be bounded as your stake. 
-Top 146 validators by bounded stake will be active validators taking part in consensus. </p>
-<p>If you already have address with <strong>CBD</strong> and know seed phrase just restore it into your local keystore.</p>
+<p>If you already have address with CYB and know seed phrase just restore it into your local keystore.</p>
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli keys add &lt;your_key_name&gt; --recover
 docker <span class="nb">exec</span> cyberd cyberdcli keys show &lt;your_key_name&gt;
 </pre></div>
 
 
-<p>If you have been lucky enought and your Ethereum address has been included in genesis you can import ethereum private key:</p>
+<p>If you have been lucky enought and your Ethereum address has been included in genesis you can import ethereum private key</p>
 <blockquote>
 <p>Please, do not import high value Ethereum accounts. This can not be safe! cyberd software is a new software and is not battle tested yet.</p>
 </blockquote>
