@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -10,11 +10,13 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Knowledge base of cyber•Congress">
+        <meta name="description" content="knowledge base of cyber•Congress">
       
       
+        <link rel="canonical" href="https://wiki.cybercongress.ai/cybernode/k8s-cheat-sheet/">
       
-        <meta name="author" content="cyber•Congress team">
+      
+        <meta name="author" content="cyber•Congress">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -35,49 +37,51 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-2.7.2">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
-        <title>Cheat-sheet - сyber•Congress wiki</title>
+        <title>Cheat-sheet - cyber•Congress wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play:300,400,400i,700|Play">
-        <style>body,input{font-family:"Play","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Play","Courier New",Courier,monospace}</style>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play:300,400,400i,700|Play+Mono">
+        <style>body,input{font-family:"Play","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Play Mono","Courier New",Courier,monospace}</style>
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-    
-      <link rel="stylesheet" href="../../stylesheets/progressbar.css">
     
     
   </head>
   
     
     
-    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="green">
   
     <svg class="md-svg">
       <defs>
         
         
           <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="github">
+    viewBox="0 0 416 448" id="__github">
   <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
         8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
         18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
@@ -97,9 +101,9 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#k8s-cheat-sheet" tabindex="1" class="md-skip">
         Skip to content
@@ -110,9 +114,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="сyber•Congress wiki" class="md-header-nav__button md-logo">
+        <a href="https://wiki.cybercongress.ai/" title="cyber•Congress wiki" class="md-header-nav__button md-logo">
           
-            <img src="../../img/logo.svg" width="24" height="24">
+            <img src="../../assets/images/logo.svg" width="24" height="24">
           
         </a>
       </div>
@@ -124,7 +128,7 @@
           
             
               <span class="md-header-nav__topic">
-                сyber•Congress wiki
+                cyber•Congress wiki
               </span>
               <span class="md-header-nav__topic">
                 Cheat-sheet
@@ -181,7 +185,7 @@
       </div>
     
     <div class="md-source__repository">
-      congress
+      cyber•Congress
     </div>
   </a>
 
@@ -337,7 +341,7 @@
       </div>
     
     <div class="md-source__repository">
-      congress
+      cyber•Congress
     </div>
   </a>
 
@@ -814,6 +818,11 @@
     
       
     
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cheat-sheet
+      </label>
+    
     <a href="./" title="Cheat-sheet" class="md-nav__link md-nav__link--active">
       Cheat-sheet
     </a>
@@ -825,6 +834,7 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1293,6 +1303,7 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1339,57 +1350,43 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/cybercongress/library/edit/master/wiki/docs/cybernode/k8s-cheat-sheet.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/cybercongress/Library/wiki/docs/cybernode/k8s-cheat-sheet.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="k8s-cheat-sheet">K8s cheat sheet<a class="headerlink" href="#k8s-cheat-sheet" title="Permanent link">&para;</a></h1>
 <h2 id="k8s-dashboard">k8s dashboard<a class="headerlink" href="#k8s-dashboard" title="Permanent link">&para;</a></h2>
-<p>Local dashboard proxy:</p>
+<p>Local dashboard proxy:
 <div class="codehilite"><pre><span></span>kubectl proxy
 </pre></div>
-
-
-<p>Get cluster access token:</p>
+Get cluster access token:
 <div class="codehilite"><pre><span></span>kubectl config view <span class="p">|</span> grep -A10 <span class="s2">&quot;name: </span><span class="k">$(</span>kubectl config current-context<span class="k">)</span><span class="s2">&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;$1==&quot;access-token:&quot;{print $2}&#39;</span>
 </pre></div>
-
-
-<p>Get logs of previously running container (if it failed and then restarts):</p>
+Get logs of previously running container (if it failed and then restarts):
 <div class="codehilite"><pre><span></span>kubectl logs mypod --previous
-</pre></div>
-
-
+</pre></div></p>
 <h2 id="reset-gke-node">Reset GKE Node<a class="headerlink" href="#reset-gke-node" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>gcloud compute instances reset gke-kubia-default-pool-b46381f1-zwko
 </pre></div>
-
 
 <h2 id="forward-pod-port-on-localhost">Forward pod port on localhost<a class="headerlink" href="#forward-pod-port-on-localhost" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>kubectl port-forward -n monitoring prometheus-kube-prometheus-0 <span class="m">9090</span>
 </pre></div>
 
-
-<p>Forward port of first found pod with specific namespace and label: </p>
+<p>Forward port of first found pod with specific namespace and label: 
 <div class="codehilite"><pre><span></span>kubectl port-forward -n chains <span class="k">$(</span>kubectl get pod -n chains -l <span class="nv">chain</span><span class="o">=</span>bitcoind-btc -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.items[0].metadata.name}&quot;</span><span class="k">)</span> <span class="m">8332</span>
-</pre></div>
-
-
+</pre></div></p>
 <h2 id="elassandra-commands">Elassandra commands<a class="headerlink" href="#elassandra-commands" title="Permanent link">&para;</a></h2>
-<p>Get nodes status:</p>
+<p>Get nodes status:
 <div class="codehilite"><pre><span></span>kubectl <span class="nb">exec</span> -n search elassandra-0 -- nodetool status
 </pre></div>
-
-
-<p>Open cqlsh CLI tool</p>
+Open cqlsh CLI tool
 <div class="codehilite"><pre><span></span>kubectl <span class="nb">exec</span> -it -n search elassandra-0 -- cqlsh
 </pre></div>
-
-
-<p>Dive into elassandra docker container shell(index stats, delete index commands examples)</p>
+Dive into elassandra docker container shell(index stats, delete index commands examples)
 <div class="codehilite"><pre><span></span>kubectl <span class="nb">exec</span> -n search -it elassandra-0 bash
 curl -XGET <span class="s1">&#39;localhost:9200/_cat/indices?v&amp;pretty&#39;</span>
 curl -XDELETE <span class="s1">&#39;localhost:9200/twitter?pretty&#39;</span>
-</pre></div>
+</pre></div></p>
                 
                   
                 
@@ -1411,7 +1408,7 @@ curl -XDELETE <span class="s1">&#39;localhost:9200/twitter?pretty&#39;</span>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            WTFPL – Do What the Fuck You Want to Public License.
+            Cyber License - Don’t believe, don’t fear, don’t ask.
           </div>
         
         powered by
@@ -1425,7 +1422,13 @@ curl -XDELETE <span class="s1">&#39;localhost:9200/twitter?pretty&#39;</span>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/cybercongress" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/cybercongress/congress#cybercongress-the-evolution-of-species" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/cyber_devs" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.reddit.com/r/cybercongress/" class="md-footer-social__link fa fa-reddit"></a>
+    
+      <a href="https://t.me/fuckgoogle" class="md-footer-social__link fa fa-telegram"></a>
     
   </div>
 
@@ -1436,13 +1439,9 @@ curl -XDELETE <span class="s1">&#39;localhost:9200/twitter?pretty&#39;</span>
       
     </div>
     
-      <script src="../../assets/javascripts/application.0cf9b500.js"></script>
+      <script src="../../assets/javascripts/application.b3a2063f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
-      
-        <script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
-      
-        <script src="../../search/main.js"></script>
       
     
     
