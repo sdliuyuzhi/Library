@@ -1335,6 +1335,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#signedtxcommitted" title="SignedTxCommitted" class="md-nav__link">
+    SignedTxCommitted
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1608,6 +1615,11 @@ the method name for further details such as parameter and return information.</p
 <td><a href="#СidsLinked">СidsLinked</a></td>
 <td>Notification of link created by given address.</td>
 </tr>
+<tr>
+<td>5</td>
+<td><a href="#SignedTxCommitted">SignedTxCommitted</a></td>
+<td>Notify when any tx for given signer is committed.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="events-details">Events Details<a class="headerlink" href="#events-details" title="Permanent link">&para;</a></h3>
@@ -1636,45 +1648,6 @@ the method name for further details such as parameter and return information.</p
 <td><a href="#events-overview">Return to Overview</a><br /></td>
 <td></td>
 </tr>
-<tr>
-<td><div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1#event&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;tm.event=&#39;NewBlockHeader&#39;&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tendermint/event/NewBlockHeader&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;chain_id&quot;</span><span class="p">:</span> <span class="s2">&quot;test-chain-gRXWCL&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="s2">&quot;40561&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-08T14:40:11.820674115Z&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;num_txs&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;total_txs&quot;</span><span class="p">:</span> <span class="s2">&quot;510&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;last_block_id&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;CC1693981B0353C907EBC2EBEB1578ABD21C955D&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;parts&quot;</span><span class="p">:</span> <span class="p">{</span>
-              <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;E854DA23981283464484FEA41D8AB5FF7697728C&quot;</span>
-            <span class="p">}</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;last_commit_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;51E1DEBA90591C532E8C58BF99F29AE4B2264644&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;data_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;validators_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;985037CEBE01051C949F01278621449712C85715&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;next_validators_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;985037CEBE01051C949F01278621449712C85715&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;consensus_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;0E520AF30D47BE28F293E040E418D0361BFB5370&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;app_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;2DBED732547DD6A3223027EF8C80FD3C3A1AD11420CA899533DCFCA260F8D170&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;last_results_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;evidence_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;proposer_address&quot;</span><span class="p">:</span> <span class="s2">&quot;A41C2ED742E47A9BDC4E71BE4B879F949045EC97&quot;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <h4 id="coinsreceived">CoinsReceived<a class="headerlink" href="#coinsreceived" title="Permanent link">&para;</a></h4>
@@ -1696,7 +1669,7 @@ the method name for further details such as parameter and return information.</p
 </tr>
 <tr>
 <td>Query</td>
-<td>'tm.event=\'EventTx\' AND recipient = 'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds''</td>
+<td>'tm.event=\'EventTx\' AND recipient = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\''</td>
 </tr>
 <tr>
 <td><a href="#events-overview">Return to Overview</a><br /></td>
@@ -1723,7 +1696,7 @@ the method name for further details such as parameter and return information.</p
 </tr>
 <tr>
 <td>Query</td>
-<td>'tm.event=\'EventTx\' AND sender = 'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds''</td>
+<td>'tm.event=\'EventTx\' AND sender = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\''</td>
 </tr>
 <tr>
 <td><a href="#events-overview">Return to Overview</a><br /></td>
@@ -1750,7 +1723,34 @@ the method name for further details such as parameter and return information.</p
 </tr>
 <tr>
 <td>Query</td>
-<td>'tm.event=\'EventTx\' AND signer = 'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds' AND action = 'link' '</td>
+<td>'tm.event=\'EventTx\' AND signer = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\' AND action = \'link\' '</td>
+</tr>
+<tr>
+<td><a href="#events-overview">Return to Overview</a><br /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="signedtxcommitted">SignedTxCommitted<a class="headerlink" href="#signedtxcommitted" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>SignedTxCommitted</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Notify when any tx for given signer is committed.</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>'tm.event=\'EventTx\' AND signer = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\''</td>
 </tr>
 <tr>
 <td><a href="#events-overview">Return to Overview</a><br /></td>
