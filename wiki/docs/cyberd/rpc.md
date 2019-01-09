@@ -86,7 +86,7 @@ the method name for further details such as parameter and return information.
 |   |   |
 |---|---|
 |Method|current_bandwidth_price|
-|Parameters||
+|Parameters|None|
 |Description|Returns current bandwidth credit price.|
 |[Return to Overview](#method-overview)<br />
 
@@ -130,7 +130,7 @@ Subscribe for new blocks header from js:
 |---|---|
 |Event|NewBlockHeader|
 |Description|Sends block header notification when a new block is committed.|
-|Query|'tm.event=\'NewBlockHeader\''|
+|Query|`tm.event='NewBlockHeader'`|
 |[Return to Overview](#events-overview)<br />
 
 
@@ -139,7 +139,7 @@ Subscribe for new blocks header from js:
 |---|---|
 |Event|CoinsReceived|
 |Description|Sends a notification when a new coins is arrived to given address.|
-|Query|'tm.event=\'EventTx\' AND recipient = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\''|
+|Query|`tm.event='EventTx' AND recipient='cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds'`|
 |[Return to Overview](#events-overview)<br />
 
 #### CoinsSend    
@@ -147,7 +147,7 @@ Subscribe for new blocks header from js:
 |---|---|
 |Event|CoinsSend|
 |Description|Sends a notification when a new coins is send from given address.|
-|Query|'tm.event=\'EventTx\' AND sender = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\''|
+|Query|`tm.event='EventTx' AND sender='cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds'`|
 |[Return to Overview](#events-overview)<br />
 
 #### СidsLinked    
@@ -155,7 +155,7 @@ Subscribe for new blocks header from js:
 |---|---|
 |Event|СidsLinked|
 |Description|Notification of link created by given address.|
-|Query|'tm.event=\'EventTx\' AND signer = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\' AND action = \'link\' '|
+|Query|`tm.event='EventTx' AND signer='cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds' AND action='link'`|
 |[Return to Overview](#events-overview)<br />
 
 #### SignedTxCommitted    
@@ -163,7 +163,7 @@ Subscribe for new blocks header from js:
 |---|---|
 |Event|SignedTxCommitted|
 |Description|Notify when any tx for given signer is committed.|
-|Query|'tm.event=\'EventTx\' AND signer = \'cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds\''|
+|Query|`tm.event='EventTx' AND signer='cbd1sk3uvpacpjm2t3389caqk4gd9n9gkzq2054yds'`|
 |[Return to Overview](#events-overview)<br />
 
 
