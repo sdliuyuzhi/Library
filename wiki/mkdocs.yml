@@ -10,7 +10,7 @@ repo_url: 'https://github.com/cybercongress/congress'
 
 
 # Copyright
-copyright: 'WTFPL – Do What the Fuck You Want to Public License.'
+copyright: 'Cyber License – Don’t believe, don’t fear, don’t ask.'
 
 
 # Configuration
@@ -20,7 +20,7 @@ theme:
   font:
     text: 'Play'
     code: 'Play'
-  favicon: 'img/favicon.svg'
+  favicon: 'assets/images/favicon.png'
   logo: 'img/logo.svg'
   language: 'en'
   palette:
@@ -36,7 +36,6 @@ extra:
 
 extra_css:
   - 'stylesheets/extra.css'
-  - 'stylesheets/progressbar.css'
 extra_javascript:
   - https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js
 
