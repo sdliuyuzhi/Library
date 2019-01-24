@@ -1265,6 +1265,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#upgrading" title="Upgrading" class="md-nav__link">
+    Upgrading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-cyb-tokens" title="Get CYB tokens" class="md-nav__link">
     Get CYB tokens
   </a>
@@ -1281,6 +1288,20 @@
         <li class="md-nav__item">
   <a href="#send-create-validator-transaction" title="Send create validator transaction" class="md-nav__link">
     Send create validator transaction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-that-you-validating" title="Verify that you validating" class="md-nav__link">
+    Verify that you validating
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unjailing" title="Unjailing" class="md-nav__link">
+    Unjailing
   </a>
   
 </li>
@@ -1307,11 +1328,11 @@
                 <h1 id="join-cyberd-network-as-validator">Join Cyberd Network As Validator<a class="headerlink" href="#join-cyberd-network-as-validator" title="Permanent link">&para;</a></h1>
 <p><strong>Note</strong>. Currently active dev testnet is <code>euler</code> (substitute <testnet_chain_id> with that value).</p>
 <h2 id="prepare-your-server">Prepare your server<a class="headerlink" href="#prepare-your-server" title="Permanent link">&para;</a></h2>
-<p>First, you have to setup a server. 
-You are supposed to run your validator node all time, so you will need a reliable server to keep it running. 
+<p>First, you have to setup a server.
+You are supposed to run your validator node all time, so you will need a reliable server to keep it running.
 Also, you may consider to use any cloud services like AWS or DigitalOcean.</p>
-<p>Cyberd is based on Cosmos SDK written in Go. 
-It should work on any platform which can compile and run programs in Go. 
+<p>Cyberd is based on Cosmos SDK written in Go.
+It should work on any platform which can compile and run programs in Go.
 However, I strongly recommend running the validator node on a Linux server.</p>
 <p>Here is the current required server specification to run validator node:</p>
 <ol>
@@ -1321,10 +1342,10 @@ However, I strongly recommend running the validator node on a Linux server.</p>
 <li>Disk: 256GB SSD</li>
 </ol>
 <h2 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h2>
-<p>Our main distribution unit is docker container. 
+<p>Our main distribution unit is docker container.
 All images are located in default <a href="https://hub.docker.com/r/cyberd/cyberd/">Dockerhub registry</a>.
 Docker installation instruction can be found <a href="https://docs.docker.com/install/">here</a>.
-In order to access <strong>GPU</strong> from container, nvidia drivers version <strong>410+</strong> and 
+In order to access <strong>GPU</strong> from container, nvidia drivers version <strong>410+</strong> and
  <a href="https://github.com/NVIDIA/nvidia-docker">nvidia docker runtime</a> should be installed on host system.</p>
 <p><strong>Note</strong>: Before installing nvidia docker runtime, reboot pc(nvidia drivers should be loaded into kernel during startup),
  check that drivers loaded correctly by <code>nvidia-smi</code> command.</p>
@@ -1364,8 +1385,22 @@ Tue Dec <span class="m">11</span> <span class="m">18</span>:02:15 <span class="m
 <div class="codehilite"><pre><span></span>docker exec cyberd cyberdcli status
 </pre></div>
 You should be seeing a returned JSON with your node status including node_info, sync_info and validator_info.</p>
+<h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h2>
+<p>Updating is easy as pulling the new docker container and launching it again</p>
+<div class="codehilite"><pre><span></span>docker stop cyberd
+docker rm cyberd
+docker pull cyberd/cyberd:euler
+
+docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
+ -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
+ -v /cyberd/daemon:/root/.cyberd <span class="se">\</span>
+ -v /cyberd/cli:/root/.cyberdcli <span class="se">\</span>
+ cyberd/cyberd:&lt;testnet_chain_id&gt;
+</pre></div>
+
+<p>Don't forget to unjail if you was jailed during update.</p>
 <h2 id="get-cyb-tokens">Get CYB tokens<a class="headerlink" href="#get-cyb-tokens" title="Permanent link">&para;</a></h2>
-<p>To be a validator, you will need some CYB to be bounded as your stake. 
+<p>To be a validator, you will need some CYB to be bounded as your stake.
 Top 146 validators by bounded stake will be active validators taking part in consensus and earning validator rewards.</p>
 <p>Once the network do not have 146 validators 100M CYB is enougth to join. Don't worry - it is not so much tokens. CYB do not have decimals so 1 CYB is comparable to 1 wei in Ethereum. Cyber network is pure POS <a href="https://tendermint.com/">Tendermint</a> based network, so there is no ability to mine tokens. But there are <a href="/docs/get_CYB.md">several ways to get tokens</a>.</p>
 <h2 id="prepare-stake-address">Prepare stake address<a class="headerlink" href="#prepare-stake-address" title="Permanent link">&para;</a></h2>
@@ -1381,32 +1416,32 @@ docker <span class="nb">exec</span> cyberd cyberdcli keys show &lt;your_key_name
 docker <span class="nb">exec</span> cyberd cyberdcli keys show &lt;your_key_name&gt;
 </pre></div>
 
-<p>If you want to create new acccount use the command below. 
-Also, you should send coins to that address to bound them later during validator submitting. 
-<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli keys add &lt;your_key_name&gt; 
+<p>If you want to create new acccount use the command below.
+Also, you should send coins to that address to bound them later during validator submitting.
+<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli keys add &lt;your_key_name&gt;
 docker exec cyberd cyberdcli keys show &lt;your_key_name&gt;
 </pre></div></p>
-<p><strong><your_key_name></strong> is any name you pick to represent this key pair. 
-You have to refer to this <your_key_name> later when you use the keys to sign transactions. 
-It will ask you to enter your password twice to encrypt the key. 
+<p><strong><your_key_name></strong> is any name you pick to represent this key pair.
+You have to refer to this <your_key_name> later when you use the keys to sign transactions.
+It will ask you to enter your password twice to encrypt the key.
 You also need to enter your password when you use your key to sign any transaction.</p>
-<p>The command returns the address, public key and a seed phrase which you can use it to 
+<p>The command returns the address, public key and a seed phrase which you can use it to
 recover your account if you forget your password later.
 Keep the seed phrase in a safe place in case you have to use them.</p>
-<p>The address showing here is your account address. Let’s call this <strong><your_account_address></strong>. 
+<p>The address showing here is your account address. Let’s call this <strong><your_account_address></strong>.
 It stores your assets.</p>
 <h2 id="send-create-validator-transaction">Send create validator transaction<a class="headerlink" href="#send-create-validator-transaction" title="Permanent link">&para;</a></h2>
-<p>Validators are actors on the network committing new blocks by submitting their votes. 
+<p>Validators are actors on the network committing new blocks by submitting their votes.
 It refers to the node itself, not a single person or a single account.
-Therefore, the public key here is referring to the node public key, 
+Therefore, the public key here is referring to the node public key,
 not the public key of the address you have just created.</p>
 <p>To get the node public key, run the following command.</p>
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberd tendermint show-validator
 </pre></div>
 
 <p>It will return a bech32 public key. Let’s call it <strong><your_node_pubkey></strong>.
-The next step you have to declare a validator candidate. 
-The validator candidate is the account which stake the coins. 
+The next step you have to declare a validator candidate.
+The validator candidate is the account which stake the coins.
 So the validator candidate is an account this time.
 To declare a validator candidate, run the following command adjusting stake amount and other fields.</p>
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli tx stake create-validator <span class="se">\</span>
@@ -1419,6 +1454,16 @@ To declare a validator candidate, run the following command adjusting stake amou
   --commission-max-rate<span class="o">=</span><span class="s2">&quot;0.20&quot;</span> <span class="se">\</span>
   --commission-max-change-rate<span class="o">=</span><span class="s2">&quot;0.01&quot;</span> <span class="se">\</span>
   --chain-id<span class="o">=</span>&lt;testnet_chain_id&gt;
+</pre></div>
+
+<h2 id="verify-that-you-validating">Verify that you validating<a class="headerlink" href="#verify-that-you-validating" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli query stake validators --trust-node=true
+</pre></div>
+
+<p>If you see your valconspub key with status <code>Bonded</code> and Jailed <code>false</code> everything must be good. You are validating the network.</p>
+<h2 id="unjailing">Unjailing<a class="headerlink" href="#unjailing" title="Permanent link">&para;</a></h2>
+<p>If your validator go under slashing conditions it first go to jail. After this event operator must unjail it manually.</p>
+<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli tx slashing unjail --from=&lt;your-wallet&gt; --chain-id=&lt;chain-id&gt;
 </pre></div>
                 
                   
