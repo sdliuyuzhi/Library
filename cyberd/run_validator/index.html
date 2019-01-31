@@ -1389,7 +1389,7 @@ You should be seeing a returned JSON with your node status including node_info, 
 <p>Updating is easy as pulling the new docker container and launching it again</p>
 <div class="codehilite"><pre><span></span>docker stop cyberd
 docker rm cyberd
-docker pull cyberd/cyberd:euler
+docker pull cyberd/cyberd:&lt;testnet_chain_id&gt;
 
 docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
