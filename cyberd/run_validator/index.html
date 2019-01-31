@@ -1330,7 +1330,7 @@
 <h2 id="prepare-your-server">Prepare your server<a class="headerlink" href="#prepare-your-server" title="Permanent link">&para;</a></h2>
 <p>First, you have to setup a server.
 You are supposed to run your validator node all time, so you will need a reliable server to keep it running.
-Also, you may consider to use any cloud services like AWS or DigitalOcean.</p>
+Also, you may consider to use any cloud services like AWS.</p>
 <p>Cyberd is based on Cosmos SDK written in Go.
 It should work on any platform which can compile and run programs in Go.
 However, I strongly recommend running the validator node on a Linux server.</p>
@@ -1445,7 +1445,7 @@ The validator candidate is the account which stake the coins.
 So the validator candidate is an account this time.
 To declare a validator candidate, run the following command adjusting stake amount and other fields.</p>
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli tx staking create-validator <span class="se">\</span>
-  --amount<span class="o">=</span>100CBD <span class="se">\</span>
+  --amount<span class="o">=</span>10000000cyb <span class="se">\</span>
   --pubkey<span class="o">=</span>&lt;your_node_pubkey&gt; <span class="se">\</span>
   --moniker<span class="o">=</span>&lt;your_node_nickname&gt; <span class="se">\</span>
   --trust-node <span class="se">\</span>
