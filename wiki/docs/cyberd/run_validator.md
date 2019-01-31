@@ -1,6 +1,6 @@
 # Join Cyberd Network As Validator
 
-**Note**. Currently active dev testnet is `euler` (substitute <testnet_chain_id> with that value).
+**Note**. Currently active dev testnet is `euler-1` (substitute <testnet_chain_id> with that value).
 
 ## Prepare your server
 
@@ -157,7 +157,7 @@ So the validator candidate is an account this time.
 To declare a validator candidate, run the following command adjusting stake amount and other fields.
 
 ```bash
-docker exec -ti cyberd cyberdcli tx stake create-validator \
+docker exec -ti cyberd cyberdcli tx staking create-validator \
   --amount=100CBD \
   --pubkey=<your_node_pubkey> \
   --moniker=<your_node_nickname> \
