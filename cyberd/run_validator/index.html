@@ -523,62 +523,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#install-dependencies" title="Install Dependencies" class="md-nav__link">
-    Install Dependencies
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-fullnode" title="Start Fullnode" class="md-nav__link">
-    Start Fullnode
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading" title="Upgrading" class="md-nav__link">
-    Upgrading
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-cyb-tokens" title="Get CYB tokens" class="md-nav__link">
-    Get CYB tokens
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prepare-stake-address" title="Prepare stake address" class="md-nav__link">
-    Prepare stake address
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#send-create-validator-transaction" title="Send create validator transaction" class="md-nav__link">
-    Send create validator transaction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-that-you-validating" title="Verify that you validating" class="md-nav__link">
-    Verify that you validating
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unjailing" title="Unjailing" class="md-nav__link">
-    Unjailing
-  </a>
-  
-</li>
-      
       
       
       
@@ -1408,62 +1352,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#install-dependencies" title="Install Dependencies" class="md-nav__link">
-    Install Dependencies
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-fullnode" title="Start Fullnode" class="md-nav__link">
-    Start Fullnode
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading" title="Upgrading" class="md-nav__link">
-    Upgrading
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-cyb-tokens" title="Get CYB tokens" class="md-nav__link">
-    Get CYB tokens
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prepare-stake-address" title="Prepare stake address" class="md-nav__link">
-    Prepare stake address
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#send-create-validator-transaction" title="Send create validator transaction" class="md-nav__link">
-    Send create validator transaction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-that-you-validating" title="Verify that you validating" class="md-nav__link">
-    Verify that you validating
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unjailing" title="Unjailing" class="md-nav__link">
-    Unjailing
-  </a>
-  
-</li>
-      
       
       
       
@@ -1492,77 +1380,291 @@ Also, you may consider to use any cloud services like AWS.</p>
 <p>Cyberd is based on Cosmos SDK written in Go.
 It should work on any platform which can compile and run programs in Go.
 However, I strongly recommend running the validator node on a Linux server.</p>
-<p>Here is the current required server specification to run validator node:</p>
-<ol>
-<li>No. of CPUs: 6</li>
-<li>RAM: 32GB</li>
-<li>Card with Nvidia CUDA support(ex 1080ti) and at least 8gb VRAM.</li>
-<li>Disk: 256GB SSD</li>
-</ol>
-<h2 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h2>
-<p>Our main distribution unit is docker container.
-All images are located in default <a href="https://hub.docker.com/r/cyberd/cyberd/">Dockerhub registry</a>.
-Docker installation instruction can be found <a href="https://docs.docker.com/install/">here</a>.
-In order to access <strong>GPU</strong> from container, nvidia drivers version <strong>410+</strong> and
- <a href="https://github.com/NVIDIA/nvidia-docker">nvidia docker runtime</a> should be installed on host system.</p>
-<p><strong>Note</strong>: Before installing nvidia docker runtime, reboot pc(nvidia drivers should be loaded into kernel during startup),
- check that drivers loaded correctly by <code>nvidia-smi</code> command.</p>
-<p>Check both driver and docker runtime installed correctly:
-<div class="codehilite"><pre><span></span>docker run --runtime<span class="o">=</span>nvidia --rm nvidia/cuda:10.0-base nvidia-smi
+<p>Rank calculation on a cyberd is benefit GPU computation. They easy to parallelize that why is the best way is to use GPU.</p>
+<p>Minimal requirements for the next two weeks (until the middle of February):</p>
+<div class="codehilite"><pre><span></span>CPU: 4 cores
+RAM: 16 GB
+SSD: 256 GB
+Connection: 100Mb, Fiber, Stable and low-latency connection
+GPU: GeForce 1070-1080, CUDA
+Software: Docker, Ubuntu 16.04/18.04 LTS
+</pre></div>
 
-<span class="c1"># Should be displayed something like this.</span>
-Tue Dec <span class="m">11</span> <span class="m">18</span>:02:15 <span class="m">2018</span>       
-+-----------------------------------------------------------------------------+
-<span class="p">|</span> NVIDIA-SMI <span class="m">410</span>.78       Driver Version: <span class="m">410</span>.78       CUDA Version: <span class="m">10</span>.0     <span class="p">|</span>
-<span class="p">|</span>-------------------------------+----------------------+----------------------+
-<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
-<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
-<span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
-<span class="p">|</span>   <span class="m">0</span>  GeForce GTX <span class="m">1050</span>    Off  <span class="p">|</span> <span class="m">00000000</span>:01:00.0 Off <span class="p">|</span>                  N/A <span class="p">|</span>
-<span class="p">|</span> N/A   52C    P0    N/A /  N/A <span class="p">|</span>    302MiB /  4042MiB <span class="p">|</span>      <span class="m">2</span>%      Default <span class="p">|</span>
+<p>Recommended requirements:</p>
+<div class="codehilite"><pre><span></span>CPU: 6 cores
+RAM: 64 GB
+SSD: 512 GB
+Connection: 100Mb, Fiber, Stable and low-latency connection
+GPU: GeForce 1070-1080, CUDA
+Software: Docker, Ubuntu 16.04/18.04 LTS
+</pre></div>
+
+<h1 id="validator-setup">Validator setup<a class="headerlink" href="#validator-setup" title="Permanent link">&para;</a></h1>
+<h2 id="third-party-software">Third-party software<a class="headerlink" href="#third-party-software" title="Permanent link">&para;</a></h2>
+<p>Cyberd main distribution unit is a <a href="https://www.docker.com/">docker</a> container. All images are located in default <a href="https://hub.docker.com/r/cyberd/cyberd/">Dockerhub registry</a>.  In order to access GPU from the container, Nvidia drivers version <strong>410+</strong> and <a href="https://github.com/NVIDIA/nvidia-docker">Nvidia docker runtime</a> should be installed on the host system. For great user experience, we propose you to use <a href="https://portainer.io">portainer</a> - docker containers manager. You can skip any subsection of this if you already had and configured necessary software.</p>
+<h4 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Update the apt package index:</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo apt-get update
+</pre></div>
+
+<ol>
+<li>Install packages to allow apt to use a repository over HTTPS:</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo apt-get install <span class="se">\</span>
+     apt-transport-https <span class="se">\</span>
+     ca-certificates <span class="se">\</span>
+     curl <span class="se">\</span>
+     gnupg-agent <span class="se">\</span>
+     software-properties-common
+</pre></div>
+
+<blockquote>
+<p>May require <code>curl</code> installation <code>apt-get install curl</code></p>
+</blockquote>
+<ol>
+<li>Add Docker’s official GPG key:</li>
+</ol>
+<div class="codehilite"><pre><span></span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+</pre></div>
+
+<div class="codehilite"><pre><span></span>sudo add-apt-repository <span class="se">\</span>
+   <span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
+<span class="s2">   </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \</span>
+<span class="s2">   stable&quot;</span>
+</pre></div>
+
+<ol>
+<li>Update the apt package index.</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo apt-get update
+</pre></div>
+
+<ol>
+<li>Install the latest version of Docker CE and containerd, or go to the next step to install a specific version:</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo apt-get install docker-ce docker-ce-cli containerd.io
+</pre></div>
+
+<p>If you don’t want to preface the docker command with sudo, create a Unix group called docker and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the docker group.</p>
+<ol>
+<li>Create the docker group.</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo groupadd docker
+</pre></div>
+
+<ol>
+<li>Add your user to the docker group.</li>
+</ol>
+<p><div class="codehilite"><pre><span></span>sudo usermod -aG docker <span class="nv">$USER</span>
+</pre></div>
+8. Reboot the system for the changes to take effect.</p>
+<h4 id="portainer-installation">Portainer installation<a class="headerlink" href="#portainer-installation" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Before installing Portainer, download the Portainer image from the DockerHub using the docker pull command below.</li>
+</ol>
+<div class="codehilite"><pre><span></span>docker pull portainer/portainer
+</pre></div>
+
+<ol>
+<li>Now run Portainer using the simple docker command below.</li>
+</ol>
+<div class="codehilite"><pre><span></span>docker run -d --restart always -p <span class="m">9000</span>:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+</pre></div>
+
+<ol>
+<li>Open your browser and go to:</li>
+</ol>
+<div class="codehilite"><pre><span></span>localhost:9000
+</pre></div>
+
+<p><img alt="" src="../img/portainer_start.png" /></p>
+<ol>
+<li>Set password, chose <code>local</code> tab and click <code>connect</code>. All containers will be available at <code>containers</code> tab.</li>
+</ol>
+<h4 id="nvidia-drivers-installation">Nvidia drivers installation<a class="headerlink" href="#nvidia-drivers-installation" title="Permanent link">&para;</a></h4>
+<ol>
+<li>To proceed first add the <code>ppa:graphics-drivers/ppa</code> repository into your system:</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo add-apt-repository ppa:graphics-drivers/ppa
+</pre></div>
+
+<div class="codehilite"><pre><span></span>sudo apt update
+</pre></div>
+
+<ol>
+<li>Next, identify your graphic card model and recommended driver:</li>
+</ol>
+<p><div class="codehilite"><pre><span></span>ubuntu-drivers devices
+</pre></div>
+You should see something like this:</p>
+<p><div class="codehilite"><pre><span></span><span class="o">==</span> /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 <span class="o">==</span>
+modalias : pci:v000010DEd00001BA1sv00001462sd000011E4bc03sc00i00
+vendor   : NVIDIA Corporation
+model    : GP104M <span class="o">[</span>GeForce GTX <span class="m">1070</span> Mobile<span class="o">]</span>
+driver   : nvidia-driver-390 - third-party free
+driver   : nvidia-driver-410 - third-party free
+driver   : nvidia-driver-396 - third-party free
+driver   : nvidia-driver-415 - third-party free recommended
+driver   : xserver-xorg-video-nouveau - distro free <span class="nb">builtin</span>
+</pre></div>
+3. We need <strong>410+</strong> drivers release. As we see v415 is recommended. The command below will install the recommended version of drivers.</p>
+<div class="codehilite"><pre><span></span>sudo ubuntu-drivers autoinstall
+</pre></div>
+
+<p>Drivers will install due approximately 10 minutes.</p>
+<div class="codehilite"><pre><span></span>DKMS: install completed.
+Setting up libxdamage1:i386 <span class="o">(</span><span class="m">1</span>:1.1.4-3<span class="o">)</span> ...
+Setting up libxext6:i386 <span class="o">(</span><span class="m">2</span>:1.3.3-1<span class="o">)</span> ...
+Setting up libxfixes3:i386 <span class="o">(</span><span class="m">1</span>:5.0.3-1<span class="o">)</span> ...
+Setting up libnvidia-decode-415:i386 <span class="o">(</span><span class="m">415</span>.27-0ubuntu0~gpu18.04.1<span class="o">)</span> ...
+Setting up build-essential <span class="o">(</span><span class="m">12</span>.4ubuntu1<span class="o">)</span> ...
+Setting up libnvidia-gl-415:i386 <span class="o">(</span><span class="m">415</span>.27-0ubuntu0~gpu18.04.1<span class="o">)</span> ...
+Setting up libnvidia-encode-415:i386 <span class="o">(</span><span class="m">415</span>.27-0ubuntu0~gpu18.04.1<span class="o">)</span> ...
+Setting up nvidia-driver-415 <span class="o">(</span><span class="m">415</span>.27-0ubuntu0~gpu18.04.1<span class="o">)</span> ...
+Setting up libxxf86vm1:i386 <span class="o">(</span><span class="m">1</span>:1.1.4-1<span class="o">)</span> ...
+Setting up libglx-mesa0:i386 <span class="o">(</span><span class="m">18</span>.0.5-0ubuntu0~18.04.1<span class="o">)</span> ...
+Setting up libglx0:i386 <span class="o">(</span><span class="m">1</span>.0.0-2ubuntu2.2<span class="o">)</span> ...
+Setting up libgl1:i386 <span class="o">(</span><span class="m">1</span>.0.0-2ubuntu2.2<span class="o">)</span> ...
+Setting up libnvidia-ifr1-415:i386 <span class="o">(</span><span class="m">415</span>.27-0ubuntu0~gpu18.04.1<span class="o">)</span> ...
+Setting up libnvidia-fbc1-415:i386 <span class="o">(</span><span class="m">415</span>.27-0ubuntu0~gpu18.04.1<span class="o">)</span> ...
+Processing triggers <span class="k">for</span> libc-bin <span class="o">(</span><span class="m">2</span>.27-3ubuntu1<span class="o">)</span> ...
+Processing triggers <span class="k">for</span> initramfs-tools <span class="o">(</span><span class="m">0</span>.130ubuntu3.1<span class="o">)</span> ...
+update-initramfs: Generating /boot/initrd.img-4.15.0-45-generic
+</pre></div>
+
+<ol>
+<li>
+<p>Reboot the system for the changes to take effect.</p>
+</li>
+<li>
+<p>Check installed drivers</p>
+</li>
+</ol>
+<p><div class="codehilite"><pre><span></span>nvidia-smi
+</pre></div>
+You should see this:</p>
+<div class="codehilite"><pre><span></span>+-----------------------------------------------------------------------------+
+| NVIDIA-SMI 415.27       Driver Version: 415.27       CUDA Version: 10.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1070    Off  | 00000000:01:00.0  On |                  N/A |
+| N/A   54C    P0    36W /  N/A |    445MiB /  8117MiB |      0%      Default |
 +-------------------------------+----------------------+----------------------+
 
 +-----------------------------------------------------------------------------+
-<span class="p">|</span> Processes:                                                       GPU Memory <span class="p">|</span>
-<span class="p">|</span>  GPU       PID   Type   Process name                             Usage      <span class="p">|</span>
-<span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0       882      G   /usr/lib/xorg/Xorg                           302MiB |
+|    0      1046      G   /usr/bin/gnome-shell                         139MiB |
 +-----------------------------------------------------------------------------+
-</pre></div></p>
-<h2 id="start-fullnode">Start Fullnode<a class="headerlink" href="#start-fullnode" title="Permanent link">&para;</a></h2>
-<p>First, create folder, where daemon and cli will store data. Some commands may require admin privileges.
-<div class="codehilite"><pre><span></span>mkdir /cyberd
-</pre></div></p>
-<p>Run daemon with mounted volumes on created during previous step folder.
-<div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
- -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
- -v /cyberd/daemon:/root/.cyberd <span class="se">\</span>
- -v /cyberd/cli:/root/.cyberdcli <span class="se">\</span>
- cyberd/cyberd:&lt;testnet_chain_id&gt;
-</pre></div></p>
-<p>To check if your node is connected to the testnet, you can run this:
-<div class="codehilite"><pre><span></span>docker exec cyberd cyberdcli status
-</pre></div>
-You should be seeing a returned JSON with your node status including node_info, sync_info and validator_info.</p>
-<h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h2>
-<p>Updating is easy as pulling the new docker container and launching it again</p>
-<div class="codehilite"><pre><span></span>docker stop cyberd
-docker rm cyberd
-docker pull cyberd/cyberd:&lt;testnet_chain_id&gt;
-
-docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
- -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
- -v /cyberd/daemon:/root/.cyberd <span class="se">\</span>
- -v /cyberd/cli:/root/.cyberdcli <span class="se">\</span>
- cyberd/cyberd:&lt;testnet_chain_id&gt;
 </pre></div>
 
-<p>Don't forget to unjail if you was jailed during update.</p>
-<h2 id="get-cyb-tokens">Get CYB tokens<a class="headerlink" href="#get-cyb-tokens" title="Permanent link">&para;</a></h2>
-<p>To be a validator, you will need some CYB to be bounded as your stake.
-Top 146 validators by bounded stake will be active validators taking part in consensus and earning validator rewards.</p>
-<p>Once the network do not have 146 validators 100M CYB is enougth to join. Don't worry - it is not so much tokens. CYB do not have decimals so 1 CYB is comparable to 1 wei in Ethereum. Cyber network is pure POS <a href="https://tendermint.com/">Tendermint</a> based network, so there is no ability to mine tokens. But there are <a href="/docs/get_CYB.md">several ways to get tokens</a>.</p>
-<h2 id="prepare-stake-address">Prepare stake address<a class="headerlink" href="#prepare-stake-address" title="Permanent link">&para;</a></h2>
-<p>If you already have address with CYB and know seed phrase just restore it into your local keystore.
+<h3 id="install-nvidia-container-runtime-for-docker">Install Nvidia container runtime for docker<a class="headerlink" href="#install-nvidia-container-runtime-for-docker" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Add the package repositories</li>
+</ol>
+<div class="codehilite"><pre><span></span>curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> <span class="se">\</span>
+    sudo apt-key add -
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>curl -s -L https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list <span class="p">|</span> <span class="se">\</span>
+   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+</pre></div>
+
+<p>You should see this:</p>
+<div class="codehilite"><pre><span></span>deb https://nvidia.github.io/libnvidia-container/ubuntu18.04/$(ARCH) /
+deb https://nvidia.github.io/nvidia-container-runtime/ubuntu18.04/$(ARCH) /
+deb https://nvidia.github.io/nvidia-docker/ubuntu18.04/$(ARCH) /
+</pre></div>
+
+<ol>
+<li>Install nvidia-docker2 and reload the Docker daemon configuration</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo apt-get update
+</pre></div>
+
+<div class="codehilite"><pre><span></span>sudo apt-get install -y nvidia-docker2
+</pre></div>
+
+<div class="codehilite"><pre><span></span>sudo pkill -SIGHUP dockerd
+</pre></div>
+
+<ol>
+<li>Test nvidia-smi with the latest official CUDA image</li>
+</ol>
+<div class="codehilite"><pre><span></span>docker run --runtime<span class="o">=</span>nvidia --rm nvidia/cuda:10.0-base nvidia-smi
+</pre></div>
+
+<p>Output logs must should coincide as earlier:</p>
+<div class="codehilite"><pre><span></span>Unable to find image &#39;nvidia/cuda:10.0-base&#39; locally
+10.0-base: Pulling from nvidia/cuda
+38e2e6cd5626: Pull complete
+705054bc3f5b: Pull complete
+c7051e069564: Pull complete
+7308e914506c: Pull complete
+5260e5fce42c: Pull complete
+8e2b19e62adb: Pull complete
+Digest: sha256:625491db7e15efcc78a529d3a2e41b77ffb5b002015983fdf90bf28955277d68
+Status: Downloaded newer image for nvidia/cuda:10.0-base
+Fri Feb  1 05:41:12 2019       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 415.27       Driver Version: 415.27       CUDA Version: 10.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1070    Off  | 00000000:01:00.0  On |                  N/A |
+| N/A   55C    P0    31W /  N/A |    445MiB /  8117MiB |     38%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
++-----------------------------------------------------------------------------+
+</pre></div>
+
+<p>Your machine is ready to launch fullnode.</p>
+<h2 id="cyberd-fullnode-launching">Cyberd fullnode launching<a class="headerlink" href="#cyberd-fullnode-launching" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Create folders for keys and data storing where you want:</li>
+</ol>
+<div class="codehilite"><pre><span></span>mkdir cyberd
+mkdir cyberdcli
+</pre></div>
+
+<ol>
+<li>Run fullnode</li>
+</ol>
+<p><div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660  -v /&lt;path_to_cyberd&gt;/cyberd:/root/.cyberd  -v /&lt;path_to_cyberdcli&gt;/cyberdcli:/root/.cyberdcli  cyberd/cyberd:&lt;testnet_chain_id&gt;
+</pre></div>
+3. After successful container pulling and launch run to check if your node is connected to the testnet:</p>
+<p><div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli status
+</pre></div>
+The possible output looks like this:
+<div class="codehilite"><pre><span></span>{&quot;node_info&quot;:{&quot;protocol_version&quot;:{&quot;p2p&quot;:&quot;6&quot;,&quot;block&quot;:&quot;9&quot;,&quot;app&quot;:&quot;0&quot;},&quot;id&quot;:&quot;93b776d3eb3f3ce9d9bda7164bc8af3acacff7b6&quot;,&quot;listen_addr&quot;:&quot;tcp://0.0.0.0:26656&quot;,&quot;network&quot;:&quot;euler-1&quot;,&quot;version&quot;:&quot;0.29.1&quot;,&quot;channels&quot;:&quot;4020212223303800&quot;,&quot;moniker&quot;:&quot;anonymous&quot;,&quot;other&quot;:{&quot;tx_index&quot;:&quot;on&quot;,&quot;rpc_address&quot;:&quot;tcp://0.0.0.0:26657&quot;}},&quot;sync_info&quot;:{&quot;latest_block_hash&quot;:&quot;686B4E65415D4E56D3B406153C965C0897D0CE27004E9CABF65064B6A0ED4240&quot;,&quot;latest_app_hash&quot;:&quot;0A1F6D260945FD6E926785F07D41049B8060C60A132F5BA49DD54F7B1C5B2522&quot;,&quot;latest_block_height&quot;:&quot;45533&quot;,&quot;latest_block_time&quot;:&quot;2019-02-01T09:49:19.771375108Z&quot;,&quot;catching_up&quot;:false},&quot;validator_info&quot;:{&quot;address&quot;:&quot;66098853CF3B61C4313DD487BA21EDF8DECACDF0&quot;,&quot;pub_key&quot;:{&quot;type&quot;:&quot;tendermint/PubKeyEd25519&quot;,&quot;value&quot;:&quot;uZrCCdZTJoHE1/v+EvhtZufJgA3zAm1bN4uZA3RyvoY=&quot;},&quot;voting_power&quot;:&quot;0&quot;}}
+</pre></div>
+Your node has started to sync. The syncing process you can see in the terminal. Open a new tab and run following command:</p>
+<div class="codehilite"><pre><span></span>docker logs cyberd --follow
+</pre></div>
+
+<p>Or go to <code>localhost:9000</code> and open logs at cyberd container:</p>
+<p><img alt="" src="../img/cyberd_logs.jpg" /></p>
+<p>Syncing has started. Syncing time depends on your internet bandwidth, connection and blockchain height. As at 2019/02/03 syncing time approximately 15-20 minutes. Once you see in logs that blocks syncing for 1 second your node is synced.</p>
+<p>Additional information available by API endpoint at <code>localhost:26657</code></p>
+<p>f.e. the number of active validators available here <code>localhost:26657/validators</code></p>
+<h2 id="validator-start">Validator start<a class="headerlink" href="#validator-start" title="Permanent link">&para;</a></h2>
+<p>After your node successful synced you can run validator.</p>
+<h4 id="prepare-stake-address">Prepare stake address<a class="headerlink" href="#prepare-stake-address" title="Permanent link">&para;</a></h4>
+<p>If you already have address with CYB and know seed phrase or private key just restore it into your local keystore.
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli keys add &lt;your_key_name&gt; --recover
 docker <span class="nb">exec</span> cyberd cyberdcli keys show &lt;your_key_name&gt;
 </pre></div></p>
@@ -1575,10 +1677,11 @@ docker <span class="nb">exec</span> cyberd cyberdcli keys show &lt;your_key_name
 </pre></div>
 
 <p>If you want to create new acccount use the command below.
-Also, you should send coins to that address to bound them later during validator submitting.
-<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli keys add &lt;your_key_name&gt;
-docker exec cyberd cyberdcli keys show &lt;your_key_name&gt;
-</pre></div></p>
+Also, you should send coins to that address to bound them later during validator submitting.</p>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli keys add &lt;your_key_name&gt;
+docker <span class="nb">exec</span> cyberd cyberdcli keys show &lt;your_key_name&gt;
+</pre></div>
+
 <p><strong><your_key_name></strong> is any name you pick to represent this key pair.
 You have to refer to this <your_key_name> later when you use the keys to sign transactions.
 It will ask you to enter your password twice to encrypt the key.
@@ -1588,12 +1691,12 @@ recover your account if you forget your password later.
 Keep the seed phrase in a safe place in case you have to use them.</p>
 <p>The address showing here is your account address. Let’s call this <strong><your_account_address></strong>.
 It stores your assets.</p>
-<h2 id="send-create-validator-transaction">Send create validator transaction<a class="headerlink" href="#send-create-validator-transaction" title="Permanent link">&para;</a></h2>
+<h4 id="send-create-validator-transaction">Send create validator transaction<a class="headerlink" href="#send-create-validator-transaction" title="Permanent link">&para;</a></h4>
 <p>Validators are actors on the network committing new blocks by submitting their votes.
 It refers to the node itself, not a single person or a single account.
 Therefore, the public key here is referring to the node public key,
 not the public key of the address you have just created.</p>
-<p>To get the node public key, run the following command.</p>
+<p>To get the node public key, run the following command:</p>
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberd tendermint show-validator
 </pre></div>
 
@@ -1614,15 +1717,31 @@ To declare a validator candidate, run the following command adjusting stake amou
   --chain-id<span class="o">=</span>&lt;testnet_chain_id&gt;
 </pre></div>
 
-<h2 id="verify-that-you-validating">Verify that you validating<a class="headerlink" href="#verify-that-you-validating" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli query stake validators --trust-node=true
+<h4 id="verify-that-you-validating">Verify that you validating<a class="headerlink" href="#verify-that-you-validating" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli query staking validators --trust-node<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 
-<p>If you see your valconspub key with status <code>Bonded</code> and Jailed <code>false</code> everything must be good. You are validating the network.</p>
-<h2 id="unjailing">Unjailing<a class="headerlink" href="#unjailing" title="Permanent link">&para;</a></h2>
+<p>If you see your <code>&lt;your_node_nickname&gt;</code> with status <code>Bonded</code> and Jailed <code>false</code> everything must be good. You are validating the network.</p>
+<h1 id="maintenance-of-validator">Maintenance of validator<a class="headerlink" href="#maintenance-of-validator" title="Permanent link">&para;</a></h1>
+<h4 id="jailing">jailing<a class="headerlink" href="#jailing" title="Permanent link">&para;</a></h4>
 <p>If your validator go under slashing conditions it first go to jail. After this event operator must unjail it manually.</p>
-<div class="codehilite"><pre><span></span>docker exec -ti cyberd cyberdcli tx slashing unjail --from=&lt;your-wallet&gt; --chain-id=&lt;chain-id&gt;
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli tx slashing unjail --from<span class="o">=</span>&lt;your_key_name&gt; --chain-id<span class="o">=</span>&lt;testnet_chain_id&gt;
 </pre></div>
+
+<h4 id="upgrading-of-validator">Upgrading of validator<a class="headerlink" href="#upgrading-of-validator" title="Permanent link">&para;</a></h4>
+<p>Updating is easy as pulling the new docker container and launching it again</p>
+<div class="codehilite"><pre><span></span>docker stop cyberd
+docker rm cyberd
+docker pull cyberd/cyberd:&lt;testnet_chain_id&gt;
+
+docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
+ -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
+ -v /root/cyberd:/root/.cyberd <span class="se">\</span>
+ -v /root/cyberdcli:/root/.cyberdcli <span class="se">\</span>
+ cyberd/cyberd:&lt;testnet_chain_id&gt;
+</pre></div>
+
+<p>Don't forget to unjail if you was jailed during update.</p>
                 
                   
                 
