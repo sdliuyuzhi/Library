@@ -1644,7 +1644,7 @@ mkdir cyberdcli
 <ol>
 <li>Run fullnode</li>
 </ol>
-<p><div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660  -v /&lt;path_to_cyberd&gt;/cyberd:/root/.cyberd  -v /&lt;path_to_cyberdcli&gt;/cyberdcli:/root/.cyberdcli  cyberd/cyberd:&lt;testnet_chain_id&gt;
+<p><div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">1317</span>:1317  -v /&lt;path_to_cyberd&gt;/cyberd:/root/.cyberd  -v /&lt;path_to_cyberdcli&gt;/cyberdcli:/root/.cyberdcli  cyberd/cyberd:&lt;testnet_chain_id&gt;
 </pre></div>
 3. After successful container pulling and launch run to check if your node is connected to the testnet:</p>
 <p><div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli status
