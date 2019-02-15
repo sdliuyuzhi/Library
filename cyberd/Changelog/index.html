@@ -1558,15 +1558,20 @@
 <p><a href="https://github.com/cybercongress/cyberd/compare/v0.1.1...HEAD">Full Changelog</a></p>
 <p><strong>Implemented enhancements:</strong></p>
 <ul>
+<li>Download golang only once during docker build. <a href="https://github.com/cybercongress/cyberd/issues/259">#259</a></li>
+<li>Do not calculate rank, if there is no new links on last window. <a href="https://github.com/cybercongress/cyberd/issues/258">#258</a></li>
+<li>Http client only new links option for submit endpoint <a href="https://github.com/cybercongress/cyberd/issues/254">#254</a></li>
 <li>Add fail at height debug flags <a href="https://github.com/cybercongress/cyberd/issues/250">#250</a></li>
 <li>Extend isLinkExist endpoint with possibility not specify address param <a href="https://github.com/cybercongress/cyberd/issues/242">#242</a></li>
 <li>Add staking/validators endpoint to node RPC <a href="https://github.com/cybercongress/cyberd/issues/235">#235</a></li>
 <li>Add cyberd rest light-client to docker image <a href="https://github.com/cybercongress/cyberd/issues/230">#230</a></li>
+<li>Improve building of links index for search queries <a href="https://github.com/cybercongress/cyberd/issues/145">#145</a></li>
 <li>Webscoket API <a href="https://github.com/cybercongress/cyberd/issues/76">#76</a></li>
 </ul>
 <p><strong>Fixed bugs:</strong></p>
 <ul>
 <li>Different bandwidth price on same block height <a href="https://github.com/cybercongress/cyberd/issues/247">#247</a></li>
+<li>Search returns 500 error when previously unexisted "from" CID added <a href="https://github.com/cybercongress/cyberd/issues/241">#241</a></li>
 <li>Rest server  blocks cli keystore file <a href="https://github.com/cybercongress/cyberd/issues/233">#233</a></li>
 <li>Cannot interact with node <a href="https://github.com/cybercongress/cyberd/issues/203">#203</a></li>
 <li>Update cyberd.ai <a href="https://github.com/cybercongress/cyberd/issues/185">#185</a></li>
@@ -1581,6 +1586,7 @@
 </ul>
 <p><strong>Merged pull requests:</strong></p>
 <ul>
+<li>Client submit only new links flag <a href="https://github.com/cybercongress/cyberd/pull/260">#260</a> (<a href="https://github.com/hleb-albau">hleb-albau</a>)</li>
 <li>Improve building of links index for search queries <a href="https://github.com/cybercongress/cyberd/pull/255">#255</a> (<a href="https://github.com/arturalbov">arturalbov</a>)</li>
 <li>#244 Add moon as seed node <a href="https://github.com/cybercongress/cyberd/pull/253">#253</a> (<a href="https://github.com/hleb-albau">hleb-albau</a>)</li>
 <li>#250 Add fail at height debug flag <a href="https://github.com/cybercongress/cyberd/pull/251">#251</a> (<a href="https://github.com/hleb-albau">hleb-albau</a>)</li>
