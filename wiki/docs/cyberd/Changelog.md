@@ -4,20 +4,46 @@
 
 [Full Changelog](https://github.com/cybercongress/cyberd/compare/v0.1.1...HEAD)
 
+**Implemented enhancements:**
+
+- Download golang only once during docker build. [\#259](https://github.com/cybercongress/cyberd/issues/259)
+- Do not calculate rank, if there is no new links on last window. [\#258](https://github.com/cybercongress/cyberd/issues/258)
+- Http client only new links option for submit endpoint [\#254](https://github.com/cybercongress/cyberd/issues/254)
+- Add fail at height debug flags [\#250](https://github.com/cybercongress/cyberd/issues/250)
+- Extend isLinkExist endpoint with possibility not specify address param [\#242](https://github.com/cybercongress/cyberd/issues/242)
+- Add staking/validators endpoint to node RPC [\#235](https://github.com/cybercongress/cyberd/issues/235)
+- Add cyberd rest light-client to docker image [\#230](https://github.com/cybercongress/cyberd/issues/230)
+- Improve building of links index for search queries [\#145](https://github.com/cybercongress/cyberd/issues/145)
+- Webscoket API [\#76](https://github.com/cybercongress/cyberd/issues/76)
+
 **Fixed bugs:**
 
+- Different bandwidth price on same block height [\#247](https://github.com/cybercongress/cyberd/issues/247)
+- Search returns 500 error when previously unexisted "from" CID added [\#241](https://github.com/cybercongress/cyberd/issues/241)
+- Rest server  blocks cli keystore file [\#233](https://github.com/cybercongress/cyberd/issues/233)
 - Cannot interact with node [\#203](https://github.com/cybercongress/cyberd/issues/203)
 - Update cyberd.ai [\#185](https://github.com/cybercongress/cyberd/issues/185)
 - CI: Cyberd docker image building. Include genesis file [\#160](https://github.com/cybercongress/cyberd/issues/160)
 
 **Closed issues:**
 
+- Add more seeds into initial config [\#244](https://github.com/cybercongress/cyberd/issues/244)
 - Launch 0.1.1 testnet [\#205](https://github.com/cybercongress/cyberd/issues/205)
 - Cyberd release scheme. [\#180](https://github.com/cybercongress/cyberd/issues/180)
 - Ranking research [\#24](https://github.com/cybercongress/cyberd/issues/24)
 
 **Merged pull requests:**
 
+- Do not calculate rank, if there is no new links on last window. [\#261](https://github.com/cybercongress/cyberd/pull/261) ([arturalbov](https://github.com/arturalbov))
+- Client submit only new links flag [\#260](https://github.com/cybercongress/cyberd/pull/260) ([hleb-albau](https://github.com/hleb-albau))
+- Improve building of links index for search queries [\#255](https://github.com/cybercongress/cyberd/pull/255) ([arturalbov](https://github.com/arturalbov))
+- \#244 Add moon as seed node [\#253](https://github.com/cybercongress/cyberd/pull/253) ([hleb-albau](https://github.com/hleb-albau))
+- \#250 Add fail at height debug flag [\#251](https://github.com/cybercongress/cyberd/pull/251) ([hleb-albau](https://github.com/hleb-albau))
+- \#247 Different bandwidth price on same block height [\#248](https://github.com/cybercongress/cyberd/pull/248) ([hleb-albau](https://github.com/hleb-albau))
+- \#242 Extend isLinkExist endpoint with possibility not specify address [\#246](https://github.com/cybercongress/cyberd/pull/246) ([hleb-albau](https://github.com/hleb-albau))
+- \#242 Extend isLinkExist endpoint with possibility not specify address [\#245](https://github.com/cybercongress/cyberd/pull/245) ([hleb-albau](https://github.com/hleb-albau))
+- Add staking/validators endpoint to node RPC [\#236](https://github.com/cybercongress/cyberd/pull/236) ([arturalbov](https://github.com/arturalbov))
+- Rest server blocks cli keystore file [\#234](https://github.com/cybercongress/cyberd/pull/234) ([arturalbov](https://github.com/arturalbov))
 - UPD run validator md [\#232](https://github.com/cybercongress/cyberd/pull/232) ([SaveTheAles](https://github.com/SaveTheAles))
 - Add cyberd rest light-client to docker image [\#231](https://github.com/cybercongress/cyberd/pull/231) ([arturalbov](https://github.com/arturalbov))
 - Fix docs [\#228](https://github.com/cybercongress/cyberd/pull/228) ([arturalbov](https://github.com/arturalbov))
