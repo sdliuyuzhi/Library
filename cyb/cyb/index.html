@@ -386,6 +386,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cli" title="CLI" class="md-nav__link">
+    CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell" title="Shell" class="md-nav__link">
+    Shell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cyb" title=".cyb" class="md-nav__link">
+    .cyb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apps" title="Apps" class="md-nav__link">
+    Apps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#main" title=".main" class="md-nav__link">
     .main
   </a>
@@ -442,7 +470,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cyb" title=".cyb" class="md-nav__link">
+  <a href="#cyb_1" title=".cyb" class="md-nav__link">
     .cyb
   </a>
   
@@ -798,6 +826,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cli" title="CLI" class="md-nav__link">
+    CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell" title="Shell" class="md-nav__link">
+    Shell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cyb" title=".cyb" class="md-nav__link">
+    .cyb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apps" title="Apps" class="md-nav__link">
+    Apps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#main" title=".main" class="md-nav__link">
     .main
   </a>
@@ -854,7 +910,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cyb" title=".cyb" class="md-nav__link">
+  <a href="#cyb_1" title=".cyb" class="md-nav__link">
     .cyb
   </a>
   
@@ -961,28 +1017,66 @@
 <p>Concept. Definitions are work in progress.</p>
 <p><a href="https://github.com/cybercongress/cyb">Current implementation</a> is not in comply with spec yet</p>
 <h2 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">&para;</a></h2>
-<p>Cyb is a friendly software robot who helps you explore the universes. Put it simply it just a <a href="cyb://QmXHiEVCFTN8hda93qZN6ay5bXJ1ZkaLCV68AefXPs1pXg.ipfs">web3</a> browser. At the very beginning cyb is focusing on developers and advanced blockchain users who are able to work with private keys and transactions. But we see how Cyb becomes friendly for everyone who wants to interact with consensus computers in a web of the third generation. This new web is designed to free developers from outdated things such as html and v8. So developers can use any markup, execution and rendering engine they wish. That is why we don't focus on implementation of mentioned things. Instead this paper discuss implementation agnostic concepts of browser that are simple enough to be adopted by web3 developers. Initially we design Cyb for conventional desktop browsing. But suggested concepts can be easily used for mobile, voice, vr and robotics implementations.</p>
+<p>Cyb is a friendly software robot who helps you explore the universes.
+Put it simply it just a <a href="cyb://QmXHiEVCFTN8hda93qZN6ay5bXJ1ZkaLCV68AefXPs1pXg.ipfs">web3</a> browser.
+At the very beginning Cyb is focusing on developers and advanced blockchain users who are able to work with private keys and transactions.
+But we see how Cyb becomes friendly for everyone who wants to interact with consensus computers in a web of the third generation.
+This new web is designed to free developers from outdated things such as html and v8.
+So developers can use any markup, execution and rendering engine they wish.
+That is why we don't focus on implementation of mentioned things.
+Instead this paper shows implementation agnostic concepts of browser that are simple enough to be adopted by web3 developers.
+Initially we design Cyb for conventional desktop browsing.
+But suggested concepts can be easily used for mobile, voice, VR and robotics implementations.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Current state of web3 experience is non satisfactory. Still <a href="https://github.com/cybercongress/cyb/blob/master/docs/comparison.md">we did not meet</a> any piece of software that is able to deliver deep, emotional web3 experience. So we decide to bring to the table one contender that strictly follows web3 principles defined by ourselves ;-) In a rush for this passion we define the following web3 apps which we believe together implement the full web3 vision in the context of a browsing for web3 agents and app developers:</p>
+<p>Current state of web3 experience is non satisfactory.
+We still <a href="https://github.com/cybercongress/cyb/blob/master/docs/comparison.md">didn't meet</a> any piece of software that is able to deliver deep and emotional web3 experience. So we decide to bring to the table one contender that strictly follows web3 principles defined by ourselves ;-) 
+In a rush for this passion we define the following web3 apps which we believe together implement the full web3 vision in the context of a browsing for web3 agents and app developers:</p>
+<h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<h2 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<p>Here are the default UX elements, that Cyb uses to provide basic web3 UX:</p>
 <ul>
-<li><code>.main</code>: main page for every joe</li>
-<li><code>.path</code>: navigation bar and its backend</li>
-<li><code>.connect</code>: connection manager and state widget</li>
-<li><code>.keys</code>: keystore interface and id widget</li>
-<li><code>.cyber</code>: cyberd node manager and app for link chains</li>
-<li><code>.pins</code>: favourites backend and application bar</li>
-<li><code>.sign</code>: phishing resistant signer for messages and transactions with scheduler</li>
-<li><code>.crr</code>: cyb root registry</li>
-<li><code>.cyb</code>: origianl web3 appstore</li>
-<li><code>.access</code>: permission manager that respects agents' resources</li>
-<li><code>.feed</code>: notification backend and feed app</li>
+<li><code>Navigation bar</code> - search field, back &amp; forward buttons</li>
+<li><code>App Bar</code> - list of pinned favourites apps</li>
+<li><code>ID Bar</code> - main identity data</li>
+<li><code>State Bar</code> - node connection statuses</li>
+</ul>
+<h2 id="cyb">.cyb<a class="headerlink" href="#cyb" title="Permanent link">&para;</a></h2>
+<p>Cyb has a lot of user and technical settings. They are implemented in the core browser app - .cyb:</p>
+<ul>
+<li><code>main.cyb</code>: main page for every joe</li>
+<li><code>path.cyb</code>: user's navigation history</li>
+<li><code>txq.cyb</code> : user's transaction activity</li>
+<li><code>pins.cyb</code>: pinned user's favourite apps and pages</li>
+<li>
+<p><code>connect.cyb</code>: connection manager</p>
+</li>
+<li>
+<p><code>root.cyb</code>: cyb root registry</p>
+</li>
+<li><code>help.cyb</code>: cyb educational library and feedback mechanism</li>
+<li>
+<p><code>dev.cyb</code>: web3 development tool with support of contracts</p>
+</li>
+<li>
+<p><code>keys.cyb</code>: keystore interface</p>
+</li>
+<li><code>sign.cyb</code>: phishing resistant signer for messages and transactions with scheduler</li>
+<li>
+<p><code>wallet.cyb</code>: universal wallet</p>
+</li>
+<li>
+<p><code>feed.cyb</code>: notification &amp; feed app</p>
+</li>
+<li><code>access.cyb</code>: permission manager that respects agents' resources</li>
+</ul>
+<h2 id="apps">Apps<a class="headerlink" href="#apps" title="Permanent link">&para;</a></h2>
+<p>Main apps for initial web3 experience</p>
+<ul>
+<li><code>.cyber</code>: cyberd node manager and app for link chains + - <code>apps.cyber</code>: search appstore - </li>
 <li><code>.ipfs</code>: ipfs node manager and agent experience</li>
 <li><code>.eth</code>: ethereum node manager + ens resolver</li>
-<li><code>.wallet</code>: universal wallet ux</li>
-<li><code>.help</code>: cyb educational library and feedback mechanism</li>
-<li><code>.dev</code>: web3 development tool with support of contracts</li>
-<li><code>.cg</code>: all the things chaingearable</li>
-<li><code>.settings</code>: cyb settings</li>
+<li><code>.chaingear</code>: all the things chaingearable</li>
+<li><code>.wiki</code>: wiki indexator</li>
 </ul>
 <p>All this apps are considered as core apps and are included in every Cyb distribution. Let us describe in details every app as a pure concept.</p>
 <h2 id="main">.main<a class="headerlink" href="#main" title="Permanent link">&para;</a></h2>
@@ -1075,7 +1169,7 @@ verifyMessage(verificationObject: Object): Promise &lt;Boolean&gt;
 <p>Initially cyber•Congress will own all this cybersquatted records. In order to improve probability of adoption of <code>.crr</code> cyber•Congres will distribute this names to original app developers based on proof of dns mechanism. That is, names for programming languages, common programs, tokens and top-level domains will be distributed based on a proof of dns according to verified registry produced by cyber•Congress.</p>
 <p>Top english words and utf symbols will be distributed using competitions, grants and awards produced by cyber•Congress.</p>
 <p>Initially unregistered names in <code>.crr</code> will be distributed under flat fee for cyb root registry owner in Chaingear. We are going to start from 1 ETH for every name and will see will it be enough to protect from abusive squatting or not. It is possible that we will switch to auction form of distribution in a future.</p>
-<h2 id="cyb">.cyb<a class="headerlink" href="#cyb" title="Permanent link">&para;</a></h2>
+<h2 id="cyb_1">.cyb<a class="headerlink" href="#cyb_1" title="Permanent link">&para;</a></h2>
 <p>Extension over <code>.crr</code>.</p>
 <p>Added fields: logo, tagline, manifest, meta, code, crr.</p>
 <p>As result it become suitable to be an app store for browser. Appstore treats pinned apps as installed if at leas one permission is granted.</p>
