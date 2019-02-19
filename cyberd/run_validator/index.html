@@ -1021,9 +1021,9 @@ To declare a validator candidate, run the following command adjusting stake amou
 
 <h4 id="upgrading-of-validator">Upgrading of validator<a class="headerlink" href="#upgrading-of-validator" title="Permanent link">&para;</a></h4>
 <p>Updating is easy as pulling the new docker container and launching it again</p>
-<div class="codehilite"><pre><span></span>docker stop cyberd
+<div class="codehilite"><pre><span></span>docker pull cyberd/cyberd:&lt;testnet_chain_id&gt;
+docker stop cyberd
 docker rm cyberd
-docker pull cyberd/cyberd:&lt;testnet_chain_id&gt;
 
 docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
