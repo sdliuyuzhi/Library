@@ -680,6 +680,128 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#validator-setup" title="Validator setup" class="md-nav__link">
+    Validator setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#third-party-software" title="Third-party software" class="md-nav__link">
+    Third-party software
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-installation" title="Docker installation" class="md-nav__link">
+    Docker installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portainer-installation" title="Portainer installation" class="md-nav__link">
+    Portainer installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-drivers-installation" title="Nvidia drivers installation" class="md-nav__link">
+    Nvidia drivers installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nvidia-container-runtime-for-docker" title="Install Nvidia container runtime for docker" class="md-nav__link">
+    Install Nvidia container runtime for docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cyberd-fullnode-launching" title="Cyberd fullnode launching" class="md-nav__link">
+    Cyberd fullnode launching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-start" title="Validator start" class="md-nav__link">
+    Validator start
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-stake-address" title="Prepare stake address" class="md-nav__link">
+    Prepare stake address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-create-validator-transaction" title="Send create validator transaction" class="md-nav__link">
+    Send create validator transaction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-that-you-validating" title="Verify that you validating" class="md-nav__link">
+    Verify that you validating
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-of-validator" title="Maintenance of validator" class="md-nav__link">
+    Maintenance of validator
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jailing" title="jailing" class="md-nav__link">
+    jailing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrading-of-validator" title="Upgrading of validator" class="md-nav__link">
+    Upgrading of validator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -727,8 +849,8 @@ GPU: GeForce 1070-1080, CUDA
 Software: Docker, Ubuntu 16.04/18.04 LTS
 </pre></div>
 
-<h1 id="validator-setup">Validator setup<a class="headerlink" href="#validator-setup" title="Permanent link">&para;</a></h1>
-<h2 id="third-party-software">Third-party software<a class="headerlink" href="#third-party-software" title="Permanent link">&para;</a></h2>
+<h2 id="validator-setup">Validator setup<a class="headerlink" href="#validator-setup" title="Permanent link">&para;</a></h2>
+<h3 id="third-party-software">Third-party software<a class="headerlink" href="#third-party-software" title="Permanent link">&para;</a></h3>
 <p>Cyberd main distribution unit is a <a href="https://www.docker.com/">docker</a> container. All images are located in default <a href="https://hub.docker.com/r/cyberd/cyberd/">Dockerhub registry</a>.  In order to access GPU from the container, Nvidia drivers version <strong>410+</strong> and <a href="https://github.com/NVIDIA/nvidia-docker">Nvidia docker runtime</a> should be installed on the host system. For great user experience, we propose you to use <a href="https://portainer.io">portainer</a> - docker containers manager. You can skip any subsection of this if you already had and configured necessary software.</p>
 <h4 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">&para;</a></h4>
 <ol>
@@ -1050,7 +1172,7 @@ To declare a validator candidate, run the following command adjusting stake amou
 </pre></div>
 
 <p>If you see your <code>&lt;your_node_nickname&gt;</code> with status <code>Bonded</code> and Jailed <code>false</code> everything must be good. You are validating the network.</p>
-<h1 id="maintenance-of-validator">Maintenance of validator<a class="headerlink" href="#maintenance-of-validator" title="Permanent link">&para;</a></h1>
+<h2 id="maintenance-of-validator">Maintenance of validator<a class="headerlink" href="#maintenance-of-validator" title="Permanent link">&para;</a></h2>
 <h4 id="jailing">jailing<a class="headerlink" href="#jailing" title="Permanent link">&para;</a></h4>
 <p>If your validator go under slashing conditions it first go to jail. After this event operator must unjail it manually.</p>
 <div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> -ti cyberd cyberdcli tx slashing unjail --from<span class="o">=</span>&lt;your_key_name&gt; --chain-id<span class="o">=</span>&lt;testnet_chain_id&gt;
