@@ -1,1 +1,2 @@
-    - cyberd: help/cyberd/1.md
+    - cyberd:
+      - run validator: help/cyberd/run_validator.md
