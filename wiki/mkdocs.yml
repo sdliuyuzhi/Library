@@ -109,10 +109,14 @@ nav:
     - App guidelines: cyb/app-guidelines.md
 #cyberd table of content. Observe the correct tabulation. Do not change the tabulation of the header.
   - cyberd:
-    - Overview: cyberd/cyberd.md
-    - Roadmap: cyberd/Roadmap.md
-    - Changelog: cyberd/Changelog.md
+    - Whitepaper: cyberd/cyberd.md
+    - Overview: cyberd/overview.md
+    - Get CYB: cyberd/get_CYB.md
+    - Run Validator: cyberd/run_validator.md
+    - RPC: cyberd/rpc.md
+    - Bandwidth Specification: cyberd/bandwidth.md
     - Contributing: cyberd/Contributing.md
+    - Changelog: cyberd/Changelog.md
 #Changear table of content. Observe the correct tabulation. Do not change the tabulation of the header.
   - chaingear:
     - Overview: сhaingear/overview.md
@@ -120,3 +124,7 @@ nav:
     - Pipelines: сhaingear/pipelines.md
     - Development: сhaingear/development.md
     - Changelog: сhaingear/Changelog.md
+  - help:
+    - cyb: help/cyb/1.md
+    - cyberd: help/cyberd/1.md
+    - chaingear: help/chaingear/1.md
