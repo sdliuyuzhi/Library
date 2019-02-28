@@ -124,7 +124,3 @@ nav:
     - Pipelines: сhaingear/pipelines.md
     - Development: сhaingear/development.md
     - Changelog: сhaingear/Changelog.md
-  - help:
-    - cyb: help/cyb/1.md
-    - cyberd: help/cyberd/1.md
-    - chaingear: help/chaingear/1.md
