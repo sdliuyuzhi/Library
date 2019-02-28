@@ -1305,16 +1305,16 @@ Fri Feb  1 05:41:12 2019
 <p>Your machine is ready to launch fullnode.</p>
 <h2 id="cyberd-fullnode-launching">Cyberd fullnode launching<a class="headerlink" href="#cyberd-fullnode-launching" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Create folders for keys and data storing where you want:</li>
+<li>Create folders for keys and data storing where you want for example:</li>
 </ol>
-<div class="codehilite"><pre><span></span>mkdir cyberd
-mkdir cyberdcli
+<div class="codehilite"><pre><span></span>mkdir /cyberd/daemon
+mkdir /cyberd/cli
 </pre></div>
 
 <ol>
 <li>Run fullnode</li>
 </ol>
-<p><div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">1317</span>:1317  -v /&lt;path_to_cyberd&gt;/cyberd:/root/.cyberd  -v /&lt;path_to_cyberdcli&gt;/cyberdcli:/root/.cyberdcli  cyberd/cyberd:&lt;testnet_chain_id&gt;
+<p><div class="codehilite"><pre><span></span>docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">1317</span>:1317  -v /cyberd/daemon:/root/.cyberd  -v /cyberd/cli:/root/.cyberdcli  cyberd/cyberd:&lt;testnet_chain_id&gt;
 </pre></div>
 3. After successful container pulling and launch run to check if your node is connected to the testnet:</p>
 <p><div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli status
@@ -1406,8 +1406,8 @@ docker rm cyberd
 
 docker run -d --name<span class="o">=</span>cyberd --restart always --runtime<span class="o">=</span>nvidia <span class="se">\</span>
  -p <span class="m">26656</span>:26656 -p <span class="m">26657</span>:26657 -p <span class="m">26660</span>:26660 <span class="se">\</span>
- -v /root/cyberd:/root/.cyberd <span class="se">\</span>
- -v /root/cyberdcli:/root/.cyberdcli <span class="se">\</span>
+ -v /cyberd/daemon:/root/.cyberd <span class="se">\</span>
+ -v /cyberd/cli:/root/.cyberdcli <span class="se">\</span>
  cyberd/cyberd:&lt;testnet_chain_id&gt;
 </pre></div>
 
