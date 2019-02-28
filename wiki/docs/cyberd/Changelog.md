@@ -1,5 +1,33 @@
 # Change Log
 
+## [Unreleased](https://github.com/cybercongress/cyberd/tree/HEAD)
+
+[Full Changelog](https://github.com/cybercongress/cyberd/compare/v0.1.3...HEAD)
+
+**Merged pull requests:**
+
+- minor docs reorg fixes [\#279](https://github.com/cybercongress/cyberd/pull/279) ([SaveTheAles](https://github.com/SaveTheAles))
+
+## [v0.1.3](https://github.com/cybercongress/cyberd/tree/v0.1.3) (2019-02-28)
+[Full Changelog](https://github.com/cybercongress/cyberd/compare/v0.1.2...v0.1.3)
+
+**Implemented enhancements:**
+
+- Remove full index loading for next rank in link index [\#275](https://github.com/cybercongress/cyberd/issues/275)
+
+**Closed issues:**
+
+- Generate lottery results cmd [\#273](https://github.com/cybercongress/cyberd/issues/273)
+
+**Merged pull requests:**
+
+- \#193 Enable governance module [\#278](https://github.com/cybercongress/cyberd/pull/278) ([hleb-albau](https://github.com/hleb-albau))
+- Remove full index loading for next rank in link index [\#277](https://github.com/cybercongress/cyberd/pull/277) ([arturalbov](https://github.com/arturalbov))
+- \#273 Generate lottery results cmd [\#274](https://github.com/cybercongress/cyberd/pull/274) ([hleb-albau](https://github.com/hleb-albau))
+- add staging [\#272](https://github.com/cybercongress/cyberd/pull/272) ([SaveTheAles](https://github.com/SaveTheAles))
+- add folder removing [\#271](https://github.com/cybercongress/cyberd/pull/271) ([SaveTheAles](https://github.com/SaveTheAles))
+- Docs ci upd [\#270](https://github.com/cybercongress/cyberd/pull/270) ([SaveTheAles](https://github.com/SaveTheAles))
+
 ## [v0.1.2](https://github.com/cybercongress/cyberd/tree/v0.1.2) (2019-02-23)
 [Full Changelog](https://github.com/cybercongress/cyberd/compare/v0.1.1...v0.1.2)
 
