@@ -30,4 +30,5 @@ jobs:
               git commit -m "Circle CI: Update Docs"
               # Push quietly to prevent showing the token in log
               git push -q https://${DOCS_GITHUB_TOKEN}@github.com/cybercongress/library.git master
+            fi
             mkdocs gh-deploy -m "deployed $CIRCLE_SHA1 with mkdocs [skip ci]"
