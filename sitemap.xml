@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://wiki.cybercongress.ai/</loc>
-     <lastmod>2019-03-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wiki.cybercongress.ai/contribute/</loc>
+     <loc>https://wiki.cybercongress.ai/blog/sprint-19-report/sprint-19-report/</loc>
      <lastmod>2019-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -87,6 +82,16 @@
     </url>
     <url>
      <loc>https://wiki.cybercongress.ai/сhaingear/help/development/</loc>
+     <lastmod>2019-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wiki.cybercongress.ai/</loc>
+     <lastmod>2019-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wiki.cybercongress.ai/contribute/</loc>
      <lastmod>2019-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
