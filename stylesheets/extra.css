@@ -1,5 +1,5 @@
 .md-main {
-  background-color: black !important
+  background-color: black !important;
 }
 
 body {
@@ -55,12 +55,12 @@ body {
 }
 
 .md-tabs {
-    background-color: black;
+    background-color: black !important;
     text-align: center;
 }
 
 .md-header {
-    background-color: black;
+    background-color: black !important;
 }
 
 .md-typeset a:active, .md-typeset a:hover {
