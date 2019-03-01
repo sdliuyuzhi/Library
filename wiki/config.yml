@@ -101,6 +101,3 @@ markdown_extensions:
   - pymdownx.tilde
 
 # Page tree
-nav:
-  - cyber•Congress: index.md
-  - Contributing: contribute.md
