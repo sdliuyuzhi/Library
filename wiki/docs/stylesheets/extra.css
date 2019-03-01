@@ -3,60 +3,60 @@
 }
 
 body {
-  color: white
+  color: white !important;
 }
 
 .md-typeset hr {
-  border-bottom-color: white;
-  border-bottom-style: dotted;
-  border-bottom-width: 0.1rem;
+  border-bottom-color: white !important;
+  border-bottom-style: dotted !important;
+  border-bottom-width: 0.1rem !important;
 }
 
 .md-typeset code, .md-typeset pre {
-  color: #36D6AE
+  color: #36D6AE !important;
 }
 
 .md-typeset .codehilite, .md-typeset .highlight {
-  background-color: rgba(46, 56 ,66 ,0.6)
+  background-color: rgba(46, 56 ,66 ,0.6) !important;
 }
 
 
 .md-typeset code, .md-typeset pre {
-    background-color: rgba(46, 56 ,66 ,0.6);
+    background-color: rgba(46, 56 ,66 ,0.6) !important;
 }
 
 .md-typeset code {
-    box-shadow: .29412em 0 0 rgba(46, 56 , 66 , 0.6),-.29412em 0 0 rgba(46, 56 ,66 ,0.6);
+    box-shadow: .29412em 0 0 rgba(46, 56 , 66 , 0.6),-.29412em 0 0 rgba(46, 56 ,66 ,0.6) !important;
 }
 
 .md-nav__link[data-md-state="blur"] {
-    color: #36D6AE;
+    color: #36D6AE !important;
 }
 
 .md-typeset a > code {
-  background-color: rgba(46, 56 ,66 ,0.1);
-  color: #36D6AE
+  background-color: rgba(46, 56 ,66 ,0.1) !important;
+  color: #36D6AE !important;
 }
 
 .md-typeset h1 {
-    color: white;
+    color: white !important;
 }
 
 .md-typeset a {
-    color: #36D6AE;
+    color: #36D6AE !important;
 }
 
 .md-nav__link:focus, .md-nav__link:hover {
-    color: #00896B;
+    color: #00896B !important;
 }
 
 .md-nav__link--active, .md-nav__link:active {
-  color: #36D6AE;
+  color: #36D6AE !important;
 }
 
 .md-tabs {
     background-color: black !important;
-    text-align: center;
+    text-align: center !important;
 }
 
 .md-header {
@@ -64,13 +64,13 @@ body {
 }
 
 .md-typeset a:active, .md-typeset a:hover {
-    color: #00896B;
+    color: #00896B !important;
 }
 
 .md-typeset h1[id] .headerlink:focus, .md-typeset h1[id]:hover .headerlink:hover, .md-typeset h1[id]:target .headerlink {
-    color: #00896B;
+    color: #00896B !important;
 }
 
 html body .md-typeset .headerlink {
-    color: #36D6AE;
+    color: #36D6AE !important;
 }
