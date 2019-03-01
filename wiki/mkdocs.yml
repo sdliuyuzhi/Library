@@ -52,8 +52,6 @@ theme:
   feature:
     tabs: true
   palette:
-    primary: green
-    accent: green
   font:
     text: Play
     code: Play Mono
