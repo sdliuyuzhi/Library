@@ -593,23 +593,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#registry-inheritance" title="Registry inheritance" class="md-nav__link">
-    Registry inheritance
+  <a href="#database-inheritance" title="Database inheritance" class="md-nav__link">
+    Database inheritance
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ps-oz-stands-to-open-zeppelin-contracts" title="PS: OZ stands to Open Zeppelin contracts" class="md-nav__link">
-    PS: OZ stands to Open Zeppelin contracts
+  <a href="#chaingear" title="/chaingear" class="md-nav__link">
+    /chaingear
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chaingear" title="/chaingear" class="md-nav__link">
-    /chaingear
+  <a href="#builders" title="/builders" class="md-nav__link">
+    /builders
   </a>
   
 </li>
@@ -622,8 +622,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#registry" title="/registry" class="md-nav__link">
-    /registry
+  <a href="#databases" title="/databases" class="md-nav__link">
+    /databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schemas" title="/schemas" class="md-nav__link">
+    /schemas
   </a>
   
     <nav class="md-nav">
@@ -637,8 +644,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-entrycore-with-example-custom-structure-and-required-functions" title="Example EntryCore (with example custom structure and required functions)" class="md-nav__link">
-    Example EntryCore (with example custom structure and required functions)
+  <a href="#example-schema" title="Example Schema" class="md-nav__link">
+    Example Schema
   </a>
   
 </li>
@@ -682,8 +689,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/" title="Development" class="md-nav__link">
-      Development
+    <a href="../Changelog/" title="Changelog" class="md-nav__link">
+      Changelog
     </a>
   </li>
 
@@ -693,10 +700,31 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+    
+    <label class="md-nav__link" for="nav-5-5">
+      Help
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../Changelog/" title="Changelog" class="md-nav__link">
-      Changelog
+    <a href="../help/development/" title="Development" class="md-nav__link">
+      Development
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -740,23 +768,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#registry-inheritance" title="Registry inheritance" class="md-nav__link">
-    Registry inheritance
+  <a href="#database-inheritance" title="Database inheritance" class="md-nav__link">
+    Database inheritance
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ps-oz-stands-to-open-zeppelin-contracts" title="PS: OZ stands to Open Zeppelin contracts" class="md-nav__link">
-    PS: OZ stands to Open Zeppelin contracts
+  <a href="#chaingear" title="/chaingear" class="md-nav__link">
+    /chaingear
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chaingear" title="/chaingear" class="md-nav__link">
-    /chaingear
+  <a href="#builders" title="/builders" class="md-nav__link">
+    /builders
   </a>
   
 </li>
@@ -769,8 +797,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#registry" title="/registry" class="md-nav__link">
-    /registry
+  <a href="#databases" title="/databases" class="md-nav__link">
+    /databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schemas" title="/schemas" class="md-nav__link">
+    /schemas
   </a>
   
     <nav class="md-nav">
@@ -784,8 +819,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-entrycore-with-example-custom-structure-and-required-functions" title="Example EntryCore (with example custom structure and required functions)" class="md-nav__link">
-    Example EntryCore (with example custom structure and required functions)
+  <a href="#example-schema" title="Example Schema" class="md-nav__link">
+    Example Schema
   </a>
   
 </li>
@@ -821,175 +856,167 @@
                 
                 <h1 id="contracts-overview">Contracts Overview<a class="headerlink" href="#contracts-overview" title="Permanent link">&para;</a></h1>
 <h2 id="design-rationale">Design rationale<a class="headerlink" href="#design-rationale" title="Permanent link">&para;</a></h2>
-<p>Main design principle goes from ERC721 NFT tokenization of Registries (in Chaingear/Metaregistry) and Entries (in custom Registry). </p>
-<p>In reason of Registries tokenization in Chaingear which allows token holder acts as administrator of their Registry, Chaingear acts to Registry as owner, which sets holder as administrator on creation phase, changes administrator when holder transfers token to another user, and transfers ownership when user unregister Registry in Chaingear, giving them full control to contract. Registry deep-linked to Chaingear registry token. In other words, token ownership means control of Registry. Also, Chaingear supports multiple Registry Creators (fabrics of registries), and allows Chaingear owners provide different kind and versioning of Registries.</p>
-<p>In reason of providing user functionality to describe their custom registry data structures and CRUD operations, the user creates their custom smart-contract, which implements the EntryInterface interface. This contract acts as inner storage, defines schema, and Registry acts them on token operations (creating and deleting). A user may deploy erroneous or vulnerable EntryCore contract, but this should not crash Chaingear-Registry NFT-token logic and Registry inner entry NFT-logic too. Even if this happens Registry crashing should not affect Chaingear/metaregistry contract. We proceed from the premise that the creator of the registry (administrator) is positive and it does not make sense for them to break his registry by initializing it with an incorrect contract.</p>
-<p>This brings us to tokenized (<strong>C</strong> <em>RU</em> <strong>D</strong>) operations (and inner private in EntryCore) in Registry-EntryCore and public (<em>C</em> <strong>R</strong> <em>UD</em>) actions/direct EntroCore tokenized (<em>CR</em> <strong>U</strong> <em>D</em>) operations.</p>
+<p>Main design principle goes from ERC721 NFT tokenization of Databases (in Chaingear/Database of databases) and Entries (in custom user's Database). </p>
+<p>In reason of Databases tokenization in Chaingear which allows token holder acts as administrator of their Databases, Chaingear acts to Database as owner, which sets token holder as administrator on creation phase, changes administrator when holder transfers token to another user, and transfers ownership when user unregister Database in Chaingear, giving them full control to contract. Database deep-linked to Chaingear database token. In other words, token ownership means control of Database. Also, Chaingear supports multiple Database Builders (fabrics of databases of given type), and allows Chaingear owners provide different kind and versioning of Databases.</p>
+<p>In reason of providing user functionality to describe their custom database data structures/schema and CRUD operations, the user creates their custom smart-contract, which implements the ISchema interface. This contract acts as inner storage, defines schema, and Database acts them on token operations (creating and deleting). A user may deploy erroneous or vulnerable Schema contract, but this should not crash Chaingear-Database NFT-token logic and Database inner entry NFT-logic too. Even if this happens Database crashing should not affect Chaingear/metadatabase contract. We proceed from the premise that the creator of the database (administrator) is positive and it does not make sense for them to break his database by initializing it with an incorrect contract.</p>
+<p>This brings us to tokenized (<strong>C</strong> <em>RU</em> <strong>D</strong>) operations (and inner in Schema) in Database and public (<em>C</em> <strong>R</strong> <em>UD</em>) plus tokenized (<em>CR</em> <strong>U</strong> <em>D</em>) Storage operation.</p>
 <h2 id="chaingear-inheritance">Chaingear inheritance<a class="headerlink" href="#chaingear-inheritance" title="Permanent link">&para;</a></h2>
 <p><img alt="chaingear_inheritance" src="../mermaid/contracts-chaingear_inheritance.svg" /></p>
-<h2 id="registry-inheritance">Registry inheritance<a class="headerlink" href="#registry-inheritance" title="Permanent link">&para;</a></h2>
-<p><img alt="registry_inheritance" src="../mermaid/contracts-registry_inheritance.svg" /></p>
-<h5 id="ps-oz-stands-to-open-zeppelin-contracts">PS: OZ stands to Open Zeppelin contracts<a class="headerlink" href="#ps-oz-stands-to-open-zeppelin-contracts" title="Permanent link">&para;</a></h5>
+<h2 id="database-inheritance">Database inheritance<a class="headerlink" href="#database-inheritance" title="Permanent link">&para;</a></h2>
+<p><img alt="database_inheritance" src="../mermaid/contracts-database_inheritance.svg" /></p>
 <h3 id="chaingear">/chaingear<a class="headerlink" href="#chaingear" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong><em>Chaingear</em></strong> allows any user to create his own registry. Building fee is collecting by new registry creation. All builded registries are tokenized with ERC721 NFT token standard and saved in Chaingear metaregistry with registry metainformation. Creator of registry may transfer tokenized ownership of registry and destroy registry with token burning. Tokenized registries Entries may collect funds by users. Chaingear supports multiple benefitiaries witch have access to collected fees. </p>
-</li>
-<li>
-<p><strong><em>ChaingearCore</em></strong> holds general logic of Chaingear. Allows change chaingear's metainformation, amount of registration fee, adding multiple registry creator contracts based on versioning or/and functionality.</p>
-</li>
-<li>
-<p><strong><em>RegistryBase</em></strong> holds struct of data with describes registry metainformation which associated with token, views function for registry metainformation.</p>
-</li>
-<li>
-<p><strong><em>RegistryCreator</em></strong> contains the code of specified version of Registry. This code used by Chaingear for Registry creation process. Registry Creator should be added with specified version and description to Chaingear Registry Creators inner registry. Chaingear contract should be added as builder to Registry Creator with reason to allow creation calls only by Chaingear contact.</p>
-</li>
+<li><strong><em>Chaingear</em></strong> allows any user to create his own database. </li>
+<li>Building fee is collecting by new database creation. </li>
+<li>All builded databases are tokenized with ERC721 NFT token standard and saved in Chaingear metadatabase with db metainformation. </li>
+<li>Creator of database may transfer tokenized ownership of database and destroy database with token burning. </li>
+<li>Tokenized databases Entries may collect funds by users and Database's owner may claim them. </li>
+<li>Chaingear supports multiple benefitiaries witch have access to collected fees from databases creation. </li>
+<li>Also allows for owner add multiple database builders contracts based their on versioning or/and functionality.</li>
+</ul>
+<h3 id="builders">/builders<a class="headerlink" href="#builders" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><em>DatabaseBuilder</em></strong> contains the code of specified version of Database. This code used by Chaingear for Database creation and deploy process. DatabaseBuilder should be added with specified version and description to Chaingear database's builders inner list. Chaingear contract should be added as allowed caller to DatabaseBuilder with reason to allow creation calls only by Chaingear contact.</li>
 </ul>
 <h3 id="common">/common<a class="headerlink" href="#common" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong><em>RegistySafe</em></strong> allows creator contract transfer ETHs to them and claim from, accounting logic holded by owner contract.</p>
+<p><strong><em>Safe</em></strong> allows creator contract transfer ETHs to them and claim from, accounting logic holded by owner contract.</p>
 </li>
 <li>
-<p><strong><em>SplitPaymentChangeable</em></strong> allows add beneficiaries to contract (addresses and shares amount) and change payee address. Beneficiaries can claim ETHs from contract proportionally to their shares.</p>
+<p><strong><em>IChaingear</em></strong></p>
 </li>
+<li><strong><em>IDatabase</em></strong></li>
+<li><strong><em>IDatabaseBuilder</em></strong></li>
+<li><strong><em>ISchema</em></strong></li>
 </ul>
-<h3 id="registry">/registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h3>
+<h3 id="databases">/databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong><em>Chaingeareable</em></strong> holds basic logic of Registry as registry basic information, balance and fees amount. Contains getters and setters for registry name, description, tags, entry base address.</p>
+<p><strong><em>Database</em></strong> contract witch tokenize entries as NFT tokens via ERC721 standard. Users can create tokenized empty entries according to entry access policy setted in Database. Database provides tokenized (<strong>C</strong> <em>RU</em> <strong>D</strong>) actions, after creation of token and empty database object, user should initialize them (<em>CR</em> <strong>U</strong> <em>D</em>) in Storage. Also users can fund entries with ETHs which send to <em>DatabaseSafe</em> with which owner of entry token can claim funds.</p>
 </li>
 <li>
-<p><strong><em>EntryInterface</em></strong> interface for <em>EntryCore</em>. Holds entry metainformation and interfaces of functions (<strong>C</strong> <em>RU</em> <strong>D</strong>) which should be implemented in <em>EntryCore</em>. Uses for interaction between Registry and EntryCore.</p>
-</li>
-<li>
-<p><strong><em>EntryCore</em></strong> partially code-generated contract where registry creator setup their custom entry structure and setters/getters. <em>EntryCore</em> then initializes in Registry by their creator (as admin) and completes Registry setup process. Provides public (<em>C</em> <strong>RU</strong> <em>D</em>) actions for users and inner (<strong>C</strong> <em>RU</em> <strong>D</strong>) tokenized actions for Registry.  Registry goes as owner of contract (and acts as proxy) with entries creating, token-based transferring and deleting.</p>
-</li>
-<li>
-<p><strong><em>Registry</em></strong> contract witch tokenize entries as NFT tokens via ERC721 standard. Users can create tokenized empty entries according to entry access policy setted in Registry. Registry provides tokenized (<strong>C</strong> <em>RU</em> <strong>D</strong>) actions, after creation of token and empty registry object, user should initialize them in EntryCore. Also users can fund entries with ETHs which send to <em>RegistrySafe</em> where owner of entry token can claim funds.</p>
-</li>
-<li>
-<p><strong><em>RegistryAccessControl</em></strong> holds logic of controlling registry and accessing to entries creation. Policy options to entries creation are OnlyAdministrator, AllUsers. Chaingear acts as owner of Registry and creator of registry acts of administrator with separated policies to Registry functions.</p>
+<p><strong><em>DatabaseAccessControl</em></strong> holds logic of controlling database and accessing to entries creation. Policy options to entries creation are OnlyAdministrator, Whitelist, AllUsers. Chaingear acts as owner of Database and creator of database acts of administrator with separated policies to Database functions.</p>
 </li>
 </ul>
+<h3 id="schemas">/schemas<a class="headerlink" href="#schemas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><em>Schema</em></strong> partially code-generated contract where database creator setup their custom entry structure and setters/getters. <em>Schema</em> then initializes in Database by their creator (as admin) and completes Database setup process. Provides public (<em>C</em> <strong>RU</strong> <em>D</em>) actions for users and inner (<strong>C</strong> <em>RU</em> <strong>D</strong>) tokenized actions for Database.  Database goes as owner of contract (and acts as proxy) with entries creating, token-based transferring and deleting.</li>
+</ul>
 <h4 id="entryinterface-interface-should-be-implemented-in-user-entrycore-contract">EntryInterface interface (should be implemented in user EntryCore contract)<a class="headerlink" href="#entryinterface-interface-should-be-implemented-in-user-entrycore-contract" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="nx">contract</span> <span class="nx">EntryInterface</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="kr">interface</span> <span class="nx">ISchema</span> <span class="p">{</span>
 
-    <span class="kd">function</span> <span class="nx">entriesAmount</span><span class="p">()</span> <span class="nx">external</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span><span class="p">);</span>
-    <span class="kd">function</span> <span class="nx">createEntry</span><span class="p">()</span> <span class="nx">external</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">createEntry</span><span class="p">()</span> <span class="nx">external</span><span class="p">;</span>
     <span class="kd">function</span> <span class="nx">deleteEntry</span><span class="p">(</span><span class="nx">uint256</span><span class="p">)</span> <span class="nx">external</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
-<h4 id="example-entrycore-with-example-custom-structure-and-required-functions">Example EntryCore (with example custom structure and required functions)<a class="headerlink" href="#example-entrycore-with-example-custom-structure-and-required-functions" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="mf">0.4.24</span><span class="p">;</span>
+<h4 id="example-schema">Example Schema<a class="headerlink" href="#example-schema" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="mf">0.4.25</span><span class="p">;</span>
 
-<span class="kr">import</span> <span class="s2">&quot;../common/EntryInterface.sol&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s2">&quot;../common/ISchema.sol&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s2">&quot;../common/IDatabase.sol&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="s2">&quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s2">&quot;openzeppelin-solidity/contracts/introspection/SupportsInterfaceWithLookup.sol&quot;</span><span class="p">;</span>
 
 
-<span class="c1">//This is Example of EntryCore</span>
-<span class="nx">contract</span> <span class="nx">EntryCore</span> <span class="nx">is</span> <span class="nx">EntryInterface</span><span class="p">,</span> <span class="nx">Ownable</span> <span class="p">{</span>
+<span class="nx">contract</span> <span class="nx">Schema</span> <span class="nx">is</span> <span class="nx">ISchema</span><span class="p">,</span> <span class="nx">Ownable</span><span class="p">,</span> <span class="nx">SupportsInterfaceWithLookup</span> <span class="p">{</span>
+
+    <span class="nx">bytes4</span> <span class="nx">constant</span> <span class="nx">internal</span> <span class="nx">INTERFACE_SCHEMA_ID</span> <span class="o">=</span> <span class="mh">0x153366ed</span><span class="p">;</span>
 
     <span class="nx">struct</span> <span class="nx">Entry</span> <span class="p">{</span>
-        <span class="nx">address</span> <span class="nx">expensiveAddress</span><span class="p">;</span>
-        <span class="nx">uint256</span> <span class="nx">expensiveUint</span><span class="p">;</span>
-        <span class="nx">int128</span> <span class="nx">expensiveInt</span><span class="p">;</span>
-        <span class="nx">string</span> <span class="nx">expensiveString</span><span class="p">;</span>
+        <span class="nx">string</span> <span class="nx">name</span><span class="p">;</span>
+        <span class="nx">string</span> <span class="nx">manifest</span><span class="p">;</span>
+        <span class="nx">string</span> <span class="nx">extension</span><span class="p">;</span>
+        <span class="nx">string</span> <span class="nx">content</span><span class="p">;</span>
+        <span class="nx">string</span> <span class="nx">logo</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="nx">mapping</span><span class="p">(</span><span class="nx">string</span> <span class="p">=&gt;</span> <span class="nx">bool</span><span class="p">)</span> <span class="nx">internal</span> <span class="nx">entryExpensiveStringIndex</span><span class="p">;</span>
+    <span class="nx">Entry</span><span class="p">[]</span> <span class="kr">public</span> <span class="nx">entries</span><span class="p">;</span>
 
-    <span class="nx">Entry</span><span class="p">[]</span> <span class="nx">internal</span> <span class="nx">entries</span><span class="p">;</span>
+    <span class="nx">IDatabase</span> <span class="nx">internal</span> <span class="nx">database</span><span class="p">;</span>
 
-    <span class="kd">function</span><span class="p">()</span> <span class="nx">external</span> <span class="p">{}</span>
+    <span class="nx">constructor</span><span class="p">()</span>
+        <span class="kr">public</span>
+    <span class="p">{</span>
+        <span class="nx">_registerInterface</span><span class="p">(</span><span class="nx">INTERFACE_SCHEMA_ID</span><span class="p">);</span>
+        <span class="nx">database</span> <span class="o">=</span> <span class="nx">IDatabase</span><span class="p">(</span><span class="nx">owner</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span><span class="p">()</span> <span class="nx">external</span> <span class="p">{}</span> 
 
     <span class="kd">function</span> <span class="nx">createEntry</span><span class="p">()</span>
         <span class="nx">external</span>
         <span class="nx">onlyOwner</span>
-        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="nx">Entry</span> <span class="nx">memory</span> <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">Entry</span><span class="p">(</span>
         <span class="p">{</span>
-            <span class="nx">expensiveAddress</span><span class="o">:</span> <span class="nx">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-            <span class="nx">expensiveUint</span><span class="o">:</span> <span class="nx">uint256</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-            <span class="nx">expensiveInt</span><span class="o">:</span> <span class="nx">int128</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-            <span class="nx">expensiveString</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="nx">name</span><span class="o">:</span>       <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">manifest</span><span class="o">:</span>   <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">extension</span><span class="o">:</span>  <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">content</span><span class="o">:</span>    <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">logo</span><span class="o">:</span>       <span class="s2">&quot;&quot;</span>
         <span class="p">}));</span>
 
-        <span class="nx">uint256</span> <span class="nx">newEntryID</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">entries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+    <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nx">newEntryID</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">readEntry</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="nx">external</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span>
+            <span class="nx">string</span><span class="p">,</span>
+            <span class="nx">string</span><span class="p">,</span>
+            <span class="nx">string</span><span class="p">,</span>
+            <span class="nx">string</span><span class="p">,</span>
+            <span class="nx">string</span>
+        <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">uint256</span> <span class="nx">entryIndex</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getIndexByID</span><span class="p">(</span><span class="nx">_entryID</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nx">entries</span><span class="p">[</span><span class="nx">entryIndex</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span>
+            <span class="nx">entries</span><span class="p">[</span><span class="nx">entryIndex</span><span class="p">].</span><span class="nx">manifest</span><span class="p">,</span>
+            <span class="nx">entries</span><span class="p">[</span><span class="nx">entryIndex</span><span class="p">].</span><span class="nx">extension</span><span class="p">,</span>
+            <span class="nx">entries</span><span class="p">[</span><span class="nx">entryIndex</span><span class="p">].</span><span class="nx">content</span><span class="p">,</span>
+            <span class="nx">entries</span><span class="p">[</span><span class="nx">entryIndex</span><span class="p">].</span><span class="nx">logo</span>
+        <span class="p">);</span>
     <span class="p">}</span>
 
     <span class="kd">function</span> <span class="nx">updateEntry</span><span class="p">(</span>
-        <span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span> 
-        <span class="nx">address</span> <span class="nx">_newAddress</span><span class="p">,</span> 
-        <span class="nx">uint256</span> <span class="nx">_newUint</span><span class="p">,</span> 
-        <span class="nx">int128</span> <span class="nx">_newInt</span><span class="p">,</span> 
-        <span class="nx">string</span> <span class="nx">_newString</span>
+        <span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span>
+        <span class="nx">string</span>  <span class="nx">_name</span><span class="p">,</span>
+        <span class="nx">string</span>  <span class="nx">_manifest</span><span class="p">,</span>
+        <span class="nx">string</span>  <span class="nx">_extension</span><span class="p">,</span>
+        <span class="nx">string</span>  <span class="nx">_content</span><span class="p">,</span>
+        <span class="nx">string</span>  <span class="nx">_logo</span>
     <span class="p">)</span>
         <span class="nx">external</span>
     <span class="p">{</span>
-        <span class="nx">require</span><span class="p">(</span><span class="nx">owner</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">bytes4</span><span class="p">(</span><span class="nx">keccak256</span><span class="p">(</span><span class="s2">&quot;checkAuth(uint256, address)&quot;</span><span class="p">)),</span> <span class="nx">_entryID</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">));</span>
+        <span class="nx">database</span><span class="p">.</span><span class="nx">auth</span><span class="p">(</span><span class="nx">_entryID</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">);</span>
 
-        <span class="c1">// for uniq check example</span>
-        <span class="nx">require</span><span class="p">(</span><span class="nx">entryExpensiveStringIndex</span><span class="p">[</span><span class="nx">_newString</span><span class="p">]</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="nx">uint256</span> <span class="nx">entryIndex</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getIndexByID</span><span class="p">(</span><span class="nx">_entryID</span><span class="p">);</span>
 
-        <span class="nx">Entry</span> <span class="nx">memory</span> <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">Entry</span><span class="p">({</span>
-            <span class="nx">expensiveAddress</span><span class="o">:</span> <span class="nx">_newAddress</span><span class="p">,</span>
-            <span class="nx">expensiveUint</span><span class="o">:</span> <span class="nx">_newUint</span><span class="p">,</span>
-            <span class="nx">expensiveInt</span><span class="o">:</span> <span class="nx">_newInt</span><span class="p">,</span>
-            <span class="nx">expensiveString</span><span class="o">:</span> <span class="nx">_newString</span>
+        <span class="nx">Entry</span> <span class="nx">memory</span> <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">Entry</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span>       <span class="nx">_name</span><span class="p">,</span>
+            <span class="nx">manifest</span><span class="o">:</span>   <span class="nx">_manifest</span><span class="p">,</span>
+            <span class="nx">extension</span><span class="o">:</span>  <span class="nx">_extension</span><span class="p">,</span>
+            <span class="nx">content</span><span class="o">:</span>    <span class="nx">_content</span><span class="p">,</span>
+            <span class="nx">logo</span><span class="o">:</span>       <span class="nx">_logo</span>
         <span class="p">}));</span>
-        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">]</span> <span class="o">=</span> <span class="nx">m</span><span class="p">;</span>
-
-        <span class="c1">// for uniq check example</span>
-        <span class="nx">entryExpensiveStringIndex</span><span class="p">[</span><span class="nx">_newString</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-
-        <span class="nx">require</span><span class="p">(</span><span class="nx">owner</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">bytes4</span><span class="p">(</span><span class="nx">keccak256</span><span class="p">(</span><span class="s2">&quot;updateEntryTimestamp(uint256)&quot;</span><span class="p">)),</span> <span class="nx">_entryID</span><span class="p">));</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">entryIndex</span><span class="p">]</span> <span class="o">=</span> <span class="nx">m</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">deleteEntry</span><span class="p">(</span>
-        <span class="nx">uint256</span> <span class="nx">_entryIndex</span>
-    <span class="p">)</span>
+    <span class="kd">function</span> <span class="nx">deleteEntry</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryIndex</span><span class="p">)</span>
         <span class="nx">external</span>
         <span class="nx">onlyOwner</span>
-    <span class="p">{</span>
+    <span class="p">{</span>        
         <span class="nx">uint256</span> <span class="nx">lastEntryIndex</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="nx">Entry</span> <span class="nx">storage</span> <span class="nx">lastEntry</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">lastEntryIndex</span><span class="p">];</span>
+        <span class="nx">Entry</span> <span class="nx">memory</span> <span class="nx">lastEntry</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">lastEntryIndex</span><span class="p">];</span>
 
         <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryIndex</span><span class="p">]</span> <span class="o">=</span> <span class="nx">lastEntry</span><span class="p">;</span>
         <span class="k">delete</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">lastEntryIndex</span><span class="p">];</span>
         <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span><span class="o">--</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kd">function</span> <span class="nx">entriesAmount</span><span class="p">()</span>
-        <span class="nx">external</span>
-        <span class="nx">view</span>
-        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">entryID</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kd">function</span> <span class="nx">entryInfo</span><span class="p">(</span>
-        <span class="nx">uint256</span> <span class="nx">_entryID</span>
-    <span class="p">)</span>
-        <span class="nx">external</span>
-        <span class="nx">view</span>
-        <span class="nx">returns</span> <span class="p">(</span>
-            <span class="nx">address</span><span class="p">,</span> 
-            <span class="nx">uint256</span><span class="p">,</span> 
-            <span class="nx">int128</span><span class="p">,</span> 
-            <span class="nx">string</span>
-        <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">expensiveAddress</span><span class="p">,</span>
-            <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">expensiveUint</span><span class="p">,</span>
-            <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">expensiveInt</span><span class="p">,</span>
-            <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">expensiveString</span>
-        <span class="p">);</span>
     <span class="p">}</span>
 
 <span class="p">}</span>

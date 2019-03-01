@@ -585,8 +585,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/" title="Development" class="md-nav__link">
-      Development
+    <a href="../Changelog/" title="Changelog" class="md-nav__link">
+      Changelog
     </a>
   </li>
 
@@ -596,10 +596,31 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+    
+    <label class="md-nav__link" for="nav-5-5">
+      Help
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../Changelog/" title="Changelog" class="md-nav__link">
-      Changelog
+    <a href="../help/development/" title="Development" class="md-nav__link">
+      Development
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -639,21 +660,21 @@
                 
                 
                 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p>This project allows you to create your own Registry of general purpose entries on Ethereum blockchain.
+<p>This project allows you to create your own Database of general purpose entries on Ethereum blockchain.
 Entry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.</p>
-<p>Your creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.</p>
+<p>Your creating your database in Chaingear - metadatabase, which are one point of access to all databases. Databases on chaingear level are tokenized as NFT. Chaingear is most expensive database, so you should pay for your database and entry creation.</p>
 <h1 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h1>
 <h4 id="chaingear">Chaingear<a class="headerlink" href="#chaingear" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Metaregistry with Registries entries, where each entry are ERC721 token</li>
-<li>Fee-based Registry creation</li>
-<li>Creating Registries with different functionality</li>
-<li>Token-based ownership/administration for Registry</li>
-<li>Funding in ETH for Registries</li>
+<li>Metadatabase with Databases entries, where each entry are ERC721 token</li>
+<li>Fee-based Database creation</li>
+<li>Creating Databases with different functionality</li>
+<li>Token-based ownership/administration for Database</li>
+<li>Funding in ETH for Database</li>
 </ol>
-<h4 id="custom-registry">Custom registry<a class="headerlink" href="#custom-registry" title="Permanent link">&para;</a></h4>
+<h4 id="custom-database">Custom database<a class="headerlink" href="#custom-database" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Custom data structure for Registry (EntryCore)</li>
+<li>Custom data structure for Database (Schema)</li>
 <li>Each Entry is ERC721 token</li>
 <li>Fee-based Entry creation</li>
 <li>Token-based ownership Entry management</li>
@@ -663,9 +684,9 @@ Entry type is defined during creation, so you can put into entry any custom logi
 <ol>
 <li>Web3/Metamask/Truffle/IPFS based</li>
 <li>Full Chaingear control interface</li>
-<li>Full custom Registry control interface</li>
-<li>Simple smart-contract EntryCore code generation in client</li>
-<li>Registries ABI and metainformation savings in IPFS</li>
+<li>Full custom Database control interface</li>
+<li>Schema smart-contract code generation and deploying on client</li>
+<li>Databases ABI and metainformation savings in IPFS</li>
 </ol>
                 
                   
