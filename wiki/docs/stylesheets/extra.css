@@ -1,0 +1,68 @@
+.md-main {
+  background-color: black !important
+}
+
+body {
+  color: white
+}
+
+.md-typeset hr {
+  border-bottom-color: white;
+  border-bottom-style: dotted;
+  border-bottom-width: 0.1rem;
+}
+
+.md-typeset code, .md-typeset pre {
+  color: #36D6AE
+}
+
+.md-typeset .codehilite, .md-typeset .highlight {
+  background-color: rgba(46, 56 ,66 ,0.6)
+}
+
+
+.md-typeset code, .md-typeset pre {
+    background-color: rgba(46, 56 ,66 ,0.6);
+}
+
+.md-typeset code {
+    box-shadow: .29412em 0 0 rgba(46, 56 , 66 , 0.6),-.29412em 0 0 rgba(46, 56 ,66 ,0.6);
+}
+
+.md-nav__link[data-md-state="blur"] {
+    color: #36D6AE;
+}
+
+.md-typeset a > code {
+  background-color: rgba(46, 56 ,66 ,0.1);
+  color: #36D6AE
+}
+
+.md-typeset h1 {
+    color: white;
+}
+
+[data-md-color-primary="green"] .md-typeset a {
+    color: #36D6AE;
+}
+
+[data-md-color-accent="green"] .md-nav__link:focus, [data-md-color-accent="green"] .md-nav__link:hover {
+    color: #00896B;
+}
+
+[data-md-color-primary="green"] .md-nav__link--active, [data-md-color-primary="green"] .md-nav__link:active {
+  color: #36D6AE;
+}
+
+[data-md-color-primary="green"] .md-tabs {
+    background-color: black;
+    text-align: center;
+}
+
+[data-md-color-primary="green"] .md-header {
+    background-color: black;
+}
+
+[data-md-color-accent="green"] .md-typeset a:active, [data-md-color-accent="green"] .md-typeset a:hover {
+    color: #00896B;
+}

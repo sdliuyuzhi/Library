@@ -37,6 +37,8 @@ theme:
   name: null
   custom_dir: material
 
+
+
   # 404 page
   static_templates:
     - 404.html
@@ -69,6 +71,8 @@ extra:
       link: https://www.reddit.com/r/cybercongress/
     - type: telegram
       link: https://t.me/fuckgoogle
+extra_css:
+  - 'stylesheets/extra.css'
 
 # Extensions
 markdown_extensions:
