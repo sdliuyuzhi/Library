@@ -74,3 +74,18 @@ body {
 html body .md-typeset .headerlink {
     color: #36D6AE !important;
 }
+
+.md-typeset h5, .md-typeset h6 {
+    color: white;
+}
+
+.md-typeset blockquote {
+    padding-left: 1.2rem;
+    border-left: .4rem solid rgba(0,0,0,.26);
+    color: rgba(255,255,255,.5);
+}
+
+@media only screen and (max-width: 76.1875em)
+.md-nav {
+    background-color: black;
+}
