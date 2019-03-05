@@ -741,6 +741,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#if-something-wrong" title="If something wrong..." class="md-nav__link">
+    If something wrong...
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#glossary" title="Glossary" class="md-nav__link">
     Glossary
   </a>
@@ -1321,6 +1328,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#if-something-wrong" title="If something wrong..." class="md-nav__link">
+    If something wrong...
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#glossary" title="Glossary" class="md-nav__link">
     Glossary
   </a>
@@ -1686,6 +1700,84 @@
                 
                 
                 <h1 id="ultimate-cyberd-cli-guide-testnet-euler-3">Ultimate cyberd CLI guide. Testnet: Euler-3<a class="headerlink" href="#ultimate-cyberd-cli-guide-testnet-euler-3" title="Permanent link">&para;</a></h1>
+<h2 id="if-something-wrong">If something wrong...<a class="headerlink" href="#if-something-wrong" title="Permanent link">&para;</a></h2>
+<p>First of all I would like to encourage you to use  <code>--help</code> feature if you want to get better experience of using cyberdcli. This is really easy way to find all necessary commands with options and flags.</p>
+<p>For example you can enter:</p>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli --help
+</pre></div>
+
+<p>You should see this message:</p>
+<div class="codehilite"><pre><span></span>Command line interface <span class="k">for</span> interacting with cyberd
+
+Usage:
+  cyberdcli <span class="o">[</span>command<span class="o">]</span>
+
+Available Commands:
+  status      Query remote node <span class="k">for</span> status
+  query       Querying subcommands
+  tx          Transactions subcommands
+
+  keys        Add or view <span class="nb">local</span> private keys
+
+  rest-server Start LCD <span class="o">(</span>light-client daemon<span class="o">)</span>, a <span class="nb">local</span> REST server
+
+  version     Print the app version
+  link        Create and sign a link tx
+  <span class="nb">help</span>        Help about any <span class="nb">command</span>
+
+Flags:
+      --chain-id string   Chain Id of cyberd node
+  -e, --encoding string   Binary encoding <span class="o">(</span>hex<span class="p">|</span>b64<span class="p">|</span>btc<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;hex&quot;</span><span class="o">)</span>
+  -h, --help              <span class="nb">help</span> <span class="k">for</span> cyberdcli
+      --home string       directory <span class="k">for</span> config and data <span class="o">(</span>default <span class="s2">&quot;/root/.cyberdcli&quot;</span><span class="o">)</span>
+  -o, --output string     Output format <span class="o">(</span>text<span class="p">|</span>json<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;text&quot;</span><span class="o">)</span>
+      --trace             print out full stack trace on errors
+</pre></div>
+
+<p>Help feature working as a stairs - you can use it with any command to find available options, subcommands and flags. For example lets explore <code>query</code> subcommands:</p>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli query --help
+</pre></div>
+
+<p>now, you can see subcommand structure:</p>
+<p><div class="codehilite"><pre><span></span>Usage:
+cyberdcli query <span class="o">[</span>command<span class="o">]</span>
+</pre></div>
+  and available subcommands and flags:</p>
+<p>```bash
+  Available Commands:
+  tendermint-validator-set Get the full tendermint validator set at given height
+  block                    Get verified data for a the block at given height
+  txs                      Search for all transactions that match the given tags.
+  tx                       Matches this txhash over all committed blocks</p>
+<p>account                  Query account balance
+  gov                      Querying commands for the governance module
+  distr                    Querying commands for the distribution module
+  staking                  Querying commands for the staking module
+  slashing                 Querying commands for the slashing module</p>
+<p>Flags:
+  -h, --help   help for query</p>
+<p>Global Flags:
+      --chain-id string   Chain Id of cyberd node
+  -e, --encoding string   Binary encoding (hex|b64|btc) (default "hex")
+      --home string       directory for config and data (default "/root/.cyberdcli")
+  -o, --output string     Output format (text|json) (default "text")
+      --trace             print out full stack trace on errors
+  <div class="codehilite"><pre><span></span>Alright, lets explore `account` subcommand:
+
+```bash
+docker exec cyberd cyberdcli query account --help
+</pre></div></p>
+<p>Now we see all options available at this subcommands, namely, account address and flags:</p>
+<div class="codehilite"><pre><span></span>Usage:
+cyberdcli query account <span class="o">[</span>address<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</pre></div>
+
+<p>In most cases you need just two extra flags:</p>
+<div class="codehilite"><pre><span></span>--from<span class="o">=</span>&lt;your_key_name&gt; <span class="se">\</span>
+--chain-id<span class="o">=</span>&lt;testnet_chain_id&gt;
+</pre></div>
+
+<p>That it. This is very useful ability for using cyberdcli and troubleshooting.</p>
 <h2 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
 <p><strong>Bandwidth</strong> - The recovered unit of your account. Used to complete transactions in the cyberd blockchain. The amount of your bandwidth calculates like:</p>
 <p><code>your_cyb_tokens / all_cyb_tokens_in_cyberd * 2000*1000*100</code>.</p>
