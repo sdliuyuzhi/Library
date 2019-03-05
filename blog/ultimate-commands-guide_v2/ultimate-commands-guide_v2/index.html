@@ -1739,34 +1739,38 @@ Flags:
 </pre></div>
 
 <p>now, you can see subcommand structure:</p>
-<p><div class="codehilite"><pre><span></span>Usage:
+<div class="codehilite"><pre><span></span>Usage:
 cyberdcli query <span class="o">[</span>command<span class="o">]</span>
 </pre></div>
-  and available subcommands and flags:</p>
-<p>```bash
-  Available Commands:
-  tendermint-validator-set Get the full tendermint validator set at given height
-  block                    Get verified data for a the block at given height
-  txs                      Search for all transactions that match the given tags.
-  tx                       Matches this txhash over all committed blocks</p>
-<p>account                  Query account balance
-  gov                      Querying commands for the governance module
-  distr                    Querying commands for the distribution module
-  staking                  Querying commands for the staking module
-  slashing                 Querying commands for the slashing module</p>
-<p>Flags:
-  -h, --help   help for query</p>
-<p>Global Flags:
-      --chain-id string   Chain Id of cyberd node
-  -e, --encoding string   Binary encoding (hex|b64|btc) (default "hex")
-      --home string       directory for config and data (default "/root/.cyberdcli")
-  -o, --output string     Output format (text|json) (default "text")
-      --trace             print out full stack trace on errors
-  <div class="codehilite"><pre><span></span>Alright, lets explore `account` subcommand:
 
-```bash
-docker exec cyberd cyberdcli query account --help
-</pre></div></p>
+<p>and available subcommands and flags:</p>
+<div class="codehilite"><pre><span></span>Available Commands:
+tendermint-validator-set Get the full tendermint validator <span class="nb">set</span> at given height
+block                    Get verified data <span class="k">for</span> a the block at given height
+txs                      Search <span class="k">for</span> all transactions that match the given tags.
+tx                       Matches this txhash over all committed blocks
+
+account                  Query account balance
+gov                      Querying commands <span class="k">for</span> the governance module
+distr                    Querying commands <span class="k">for</span> the distribution module
+staking                  Querying commands <span class="k">for</span> the staking module
+slashing                 Querying commands <span class="k">for</span> the slashing module
+
+Flags:
+  -h, --help   <span class="nb">help</span> <span class="k">for</span> query
+
+Global Flags:
+      --chain-id string   Chain Id of cyberd node
+  -e, --encoding string   Binary encoding <span class="o">(</span>hex<span class="p">|</span>b64<span class="p">|</span>btc<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;hex&quot;</span><span class="o">)</span>
+      --home string       directory <span class="k">for</span> config and data <span class="o">(</span>default <span class="s2">&quot;/root/.cyberdcli&quot;</span><span class="o">)</span>
+  -o, --output string     Output format <span class="o">(</span>text<span class="p">|</span>json<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;text&quot;</span><span class="o">)</span>
+      --trace             print out full stack trace on errors
+</pre></div>
+
+<p>Alright, lets explore <code>account</code> subcommand:</p>
+<div class="codehilite"><pre><span></span>docker <span class="nb">exec</span> cyberd cyberdcli query account --help
+</pre></div>
+
 <p>Now we see all options available at this subcommands, namely, account address and flags:</p>
 <div class="codehilite"><pre><span></span>Usage:
 cyberdcli query account <span class="o">[</span>address<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
