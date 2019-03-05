@@ -89,3 +89,16 @@ html body .md-typeset .headerlink {
 .md-nav {
     background-color: black;
 }
+
+.md-typeset table:not([class]) {
+    box-shadow: 0 2px 2px 0 white,0 1px 5px 0 white,0 3px 1px -2px white;
+}
+
+.md-typeset table:not([class]) td {
+    border-top: .1rem solid white;
+    border-left: .05rem solid white;
+}
+
+.md-typeset table:not([class]) th {
+    background-color: gray;
+}
