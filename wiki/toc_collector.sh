@@ -6,5 +6,6 @@ cat docs/blog/blog.yml >> mkdocs.yml
 cat docs/cyb/cyb.yml >> mkdocs.yml
 cat docs/cyberd/cyberd.yml >> mkdocs.yml
 cat docs/сhaingear/chaingear.yml >> mkdocs.yml
+cat docs/js-amino/js-amino.yml >> mkdocs.yml
 echo "  - congress: index.md" >> mkdocs.yml
 echo "  - Contributing: contribute.md" >> mkdocs.yml
