@@ -216,6 +216,21 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://wiki.cybercongress.ai/js-amino/Overview/</loc>
+     <lastmod>2019-04-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wiki.cybercongress.ai/js-amino/Changelog/</loc>
+     <lastmod>2019-04-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wiki.cybercongress.ai/js-amino/Contributing/</loc>
+     <lastmod>2019-04-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://wiki.cybercongress.ai/</loc>
      <lastmod>2019-04-04</lastmod>
      <changefreq>daily</changefreq>
