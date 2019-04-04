@@ -1,4 +1,4 @@
-rm -rf ./mkdocs.yml
+rm -rf ./mkdocs.yml 
 touch mkdocs.yml
 cat config.yml >> mkdocs.yml
 echo "nav:" >> mkdocs.yml
